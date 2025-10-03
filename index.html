@@ -1,128 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Matt Zhang | Portfolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f9;
-      color: #333;
-    }
-    header {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
-    }
-    section {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 0.5rem;
-      margin-top: 2rem;
-    }
-    .project {
-      background: white;
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    footer {
-      background: #222;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matt Zhang — Research & Portfolio</title>
+    <style>
+        .social-icons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: #0077cc;
+            font-size: 2.5rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #005999;
+        }
+
+        :root {
+            --bg: #ffffff;
+            --fg: #111111;
+            --accent: #0077cc;
+        }
+
+        [data-theme="dark"] {
+            --bg: #111111;
+            --fg: #eeeeee;
+            --accent: #66aaff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: “Segoe UI”, Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--fg);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        header {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin-top: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        nav {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        nav a {
+            margin: 0 1rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .toggle-theme {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        section {
+            max-width: 800px;
+            margin: auto;
+            padding: 2rem 1rem;
+        }
+
+        .project {
+            margin-top: 1.5rem;
+        }
+
+        .project h3 {
+            margin-bottom: 0.3rem;
+        }
+
+        footer {
+            padding: 1rem;
+            text-align: center;
+            border-top: 1px solid var(--fg);
+        }
+    </style>
 </head>
+
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>Matt Zhang</h1>
-    <p>Tufts University · Computer Science (PBCS) · Future AI Researcher & Entrepreneur</p>
-  </header>
+    <div class="toggle-theme" id="themeToggle">🌙</div>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      Hi, I’m Matt — currently at Tufts University in the Post-Baccalaureate Computer Science program. 
-      With a background in clinical medicine and finance, I’m transitioning into CS with strong 
-      skills in math, modeling, and AI/ML. I aim to explore AI Safety, human–machine collaboration, 
-      and eventually build technology that changes the world.
-    </p>
-  </section>
+    <header>
+        <h1>Matt Zhang</h1>
+        <p>CS Researcher | AI & Machine Learning | Tufts PBCS</p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <a href="blog.html">Blog</a>
+        </nav>
+    </header>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>Projects</h2>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Hi, I'm Matt — Currently studying Computer Science at Tufts in the Post-Baccalaureate program.
+            I have a background in clinical medicine and finance, and I am pivoting toward AI / ML research.
+        </p>
+    </section>
 
-    <div class="project">
-      <h3>📊 Mathematical Modeling</h3>
-      <p>
-        Four years of experience, including <b>Outstanding Winner (M Award)</b> in the 
-        Mathematical Contest in Modeling (MCM). Explored applied statistics, data-driven decisions, 
-        and real-world problem solving.
-      </p>
-    </div>
+    <section id="projects">
+        <h2>Projects & Work</h2>
 
-    <div class="project">
-      <h3>🛰️ Micro-Satellite Research (Zhejiang University)</h3>
-      <p>
-        Assisted in optimizing remote sensing data with machine learning to improve decision-making 
-        for satellite applications.
-      </p>
-    </div>
+        <div class="project">
+            <h3>CS Coursework & AI Projects</h3>
+            <p>
+                Studying data structures, discrete math, reinforcement learning, and building small AI experiments.
+            </p>
+        </div>
+    </section>
 
-    <div class="project">
-      <h3>💻 Tufts CS Coursework</h3>
-      <p>
-        Currently working on C++ (CS15 Data Structures), discrete math, reinforcement learning, 
-        and web programming. Projects include linked list & queue implementations, personal website, 
-        and AI/ML experiments.
-      </p>
-    </div>
-  </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="social-icons">
+            <a href="mailto:czhang22@tufts.edu"><i class="fas fa-envelope"></i></a>
+            <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/宸源-张-621850336/?locale=en_US" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://scholar.google.com/" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+            <a href="https://github.com/MattChenyuanZhang" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      📧 Email: <a href="mailto:czhang22@tufts.edu">czhang22@tufts.edu</a><br/>
-      💼 LinkedIn: <a href="https://www.linkedin.com/in/matt-zhang" target="_blank">linkedin.com/in/matt-zhang</a><br/>
-      🐙 GitHub: <a href="https://github.com/MattZ" target="_blank">github.com/MattZ</a>
-    </p>
-  </section>
+    <footer>
+        © 2025 Matt Zhang
+    </footer>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Matt Zhang · Powered by GitHub Pages</p>
-  </footer>
+    <script>
+        const toggle = document.getElementById('themeToggle');
+        const current = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', current);
+        if (current === 'dark') toggle.textContent = '☀️';
+
+        toggle.addEventListener('click', () => {
+            const theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            toggle.textContent = theme === 'light' ? '🌙' : '☀️';
+        });
+    </script>
 
 </body>
+
 </html>
