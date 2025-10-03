@@ -2,72 +2,127 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Personal Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matt Zhang | Portfolio</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 20px;
-      background-color: #ffffff; /* white background */
-      color: #000000;            /* black text */
-      line-height: 1.5;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
     }
-
-    /* Headings centered with black outlines */
-    h1, h2 {
+    header {
+      background: #222;
+      color: white;
       text-align: center;
-      border: 2px solid black; /* outline */
-      padding: 10px;
-      margin: 15px auto;
-      width: fit-content;      /* outline fits around text */
+      padding: 2rem 1rem;
     }
-
-    .favorite-place {
-      float: left;
-      margin-right: 15px;
-      width: 300px;
-      height: auto;
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
     }
-
-    .clearfix::after {
-      content: "";
-      display: table;
-      clear: both;
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.5rem;
+      margin-top: 2rem;
+    }
+    .project {
+      background: white;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <!-- 1. First name + last initial -->
-  <h1>Matt Zhang</h1>
 
-  <!-- 2. Major -->
-  <h2>Computer Science</h2>
+  <!-- Header -->
+  <header>
+    <h1>Matt Zhang</h1>
+    <p>Tufts University · Computer Science (PBCS) · Future AI Researcher & Entrepreneur</p>
+  </header>
 
-  <!-- 3. IP address -->
-  <p>My IP address: 130.64.64.39</p>
-
-  <!-- 4. Where you grew up -->
-  <p>Where I grew up: Zhejiang, China</p>
-
-  <!-- 5. Favorite place with text wrapping -->
-  <div class="clearfix">
-    <img src="JCC.jpg" alt="Tufts Joyce Cummings Center" class="favorite-place" />
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
     <p>
-      This is my favorite place because it’s the most convenient spot to learn and talk to a TA.
-      It’s also close to the gym, which is a nice bonus.
+      Hi, I’m Matt — currently at Tufts University in the Post-Baccalaureate Computer Science program. 
+      With a background in clinical medicine and finance, I’m transitioning into CS with strong 
+      skills in math, modeling, and AI/ML. I aim to explore AI Safety, human–machine collaboration, 
+      and eventually build technology that changes the world.
     </p>
-  </div>
+  </section>
 
-  <!-- 6. Favorite restaurant -->
-  <p>
-    My favorite restaurant:
-    <a href="http://orleansrestaurant.com" target="_blank" rel="noopener noreferrer">
-      Orleans Restaurant
-    </a>
-  </p>
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Projects</h2>
 
-  <!-- 7. Something unexpected -->
-  <p>Something no one would expect about me: I will be a CEO in the future!</p>
+    <div class="project">
+      <h3>📊 Mathematical Modeling</h3>
+      <p>
+        Four years of experience, including <b>Outstanding Winner (M Award)</b> in the 
+        Mathematical Contest in Modeling (MCM). Explored applied statistics, data-driven decisions, 
+        and real-world problem solving.
+      </p>
+    </div>
+
+    <div class="project">
+      <h3>🛰️ Micro-Satellite Research (Zhejiang University)</h3>
+      <p>
+        Assisted in optimizing remote sensing data with machine learning to improve decision-making 
+        for satellite applications.
+      </p>
+    </div>
+
+    <div class="project">
+      <h3>💻 Tufts CS Coursework</h3>
+      <p>
+        Currently working on C++ (CS15 Data Structures), discrete math, reinforcement learning, 
+        and web programming. Projects include linked list & queue implementations, personal website, 
+        and AI/ML experiments.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>
+      📧 Email: <a href="mailto:czhang22@tufts.edu">czhang22@tufts.edu</a><br/>
+      💼 LinkedIn: <a href="https://www.linkedin.com/in/matt-zhang" target="_blank">linkedin.com/in/matt-zhang</a><br/>
+      🐙 GitHub: <a href="https://github.com/MattZ" target="_blank">github.com/MattZ</a>
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Matt Zhang · Powered by GitHub Pages</p>
+  </footer>
+
 </body>
 </html>
