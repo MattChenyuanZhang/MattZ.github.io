@@ -1,30 +1,64 @@
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #ffffff; /* white background */
-      color: #000000;            /* black text */
-      line-height: 1.5;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #ffffff;
+        /* white background */
+        color: #000000;
+        /* black text */
+        line-height: 1.5;
     }
 
     /* Headings centered with black outlines */
-    h1, h2 {
-      text-align: center;
-      border: 2px solid black; /* outline */
-      padding: 10px;
-      margin: 15px auto;
-      width: fit-content;      /* outline fits around text */
+    h1,
+    h2 {
+        text-align: center;
+        
+        /* To have a border surrounding the text */
+        /* border: 2px solid black; */
+
+        /* outline */
+        padding: 10px;
+        margin: 15px auto;
+        width: fit-content;
+        /* outline fits around text */
     }
 
     .favorite-place {
-      float: left;
-      margin-right: 15px;
-      width: 300px;
-      height: auto;
+        float: left;
+        margin-right: 15px;
+        width: 300px;
+        height: auto;
     }
 
     .clearfix::after {
-      content: "";
-      display: table;
-      clear: both;
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        /* horizontal center */
+        align-items: flex-start;
+        /* moves content toward the top */
+        padding-top: 60px;
+        /* fine-tune the gap */
+        background: #fdfdfd;
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        color: #333;
+    }
+
+    .container {
+        max-width: 800px;
+        padding: 20px;
+        text-align: left;
+        /* text flows left-to-right as normal */
     }
