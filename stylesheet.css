@@ -1,0 +1,30 @@
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #ffffff; /* white background */
+      color: #000000;            /* black text */
+      line-height: 1.5;
+    }
+
+    /* Headings centered with black outlines */
+    h1, h2 {
+      text-align: center;
+      border: 2px solid black; /* outline */
+      padding: 10px;
+      margin: 15px auto;
+      width: fit-content;      /* outline fits around text */
+    }
+
+    .favorite-place {
+      float: left;
+      margin-right: 15px;
+      width: 300px;
+      height: auto;
+    }
+
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
