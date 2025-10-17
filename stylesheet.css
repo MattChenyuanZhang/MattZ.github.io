@@ -117,19 +117,19 @@
 @media (max-width: 768px) {
   body {
     padding: 10px;
-    background: red; 
   }
 
   .profile-section {
     flex-direction: column;    /* stack text and image vertically */
-    align-items: left;       /* center them */
-    text-align: left;        /* center text */
+        margin-left: 40px;
+        margin-top: -20px;
     gap: 20px;                 /* smaller gap between text & photo */
   }
 
   .profile-pic {
-    width: 10px;              /* smaller image for phones */
+    width: 110px;              /* smaller image for phones */
     height: 110px;
+    object-position: 50% 50%;
   }
 
   .container {
