@@ -110,3 +110,38 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         /* subtle shadow */
     }
+
+
+
+    /* ✅ Mobile layout */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+
+  .profile-section {
+    flex-direction: column;    /* stack text and image vertically */
+    align-items: center;       /* center them */
+    text-align: center;        /* center text */
+    gap: 20px;                 /* smaller gap between text & photo */
+  }
+
+  .profile-pic {
+    width: 180px;              /* smaller image for phones */
+    height: 180px;
+  }
+
+  .container {
+    max-width: 90%;            /* use more of the screen width */
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;           /* smaller heading for mobile */
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
