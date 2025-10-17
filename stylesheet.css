@@ -121,8 +121,8 @@
 
   .profile-section {
     flex-direction: column;    /* stack text and image vertically */
-        margin-left: 40px;
-        margin-top: -20px;
+    align-items: left;       /* center them */
+    text-align: left;        /* center text */
     gap: 20px;                 /* smaller gap between text & photo */
   }
 
@@ -132,6 +132,11 @@
     object-position: 50% 50%;
   }
 
+  .text{
+        flex: 1;
+        margin-top: -100px;
+        margin-left: 20px;
+  }
   .container {
     max-width: 90%;            /* use more of the screen width */
     padding: 10px;
