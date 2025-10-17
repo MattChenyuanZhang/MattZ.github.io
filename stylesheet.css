@@ -113,7 +113,7 @@
 
 
 
-    /* ✅ Mobile layout */
+    /* Mobile layout */
 @media (max-width: 768px) {
   body {
     padding: 10px;
@@ -121,14 +121,14 @@
 
   .profile-section {
     flex-direction: column;    /* stack text and image vertically */
-    align-items: center;       /* center them */
-    text-align: center;        /* center text */
+    align-items: left;       /* center them */
+    text-align: left;        /* center text */
     gap: 20px;                 /* smaller gap between text & photo */
   }
 
   .profile-pic {
-    width: 180px;              /* smaller image for phones */
-    height: 180px;
+    width: 110px;              /* smaller image for phones */
+    height: 110px;
   }
 
   .container {
