@@ -1,85 +1,85 @@
     body {
-        font-family: "EB Garamond", serif;
-        font-weight: 400;
-        font-size: 18.5px;
+      font-family: "EB Garamond", serif;
+      font-weight: 400;
+      font-size: 18.5px;
 
 
-        justify-content: center;
-        /* centers content horizontally */
-        margin: 0;
-        padding: 20px;
-        display: flex;
-        /* enables flex layout */
+      justify-content: center;
+      /* centers content horizontally */
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      /* enables flex layout */
 
-        align-items: flex-start;
-        /* keeps content near the top */
-        min-height: 100vh;
-        /* full viewport height */
-        background-color: #ffffff;
-        /* white background */
-        color: #000000;
-        /* black text */
-        line-height: 1.5;
+      align-items: flex-start;
+      /* keeps content near the top */
+      min-height: 100vh;
+      /* full viewport height */
+      background-color: #ffffff;
+      /* white background */
+      color: #000000;
+      /* black text */
+      line-height: 1.5;
     }
 
     /* Headings centered with black outlines */
     h2 {
-        /* change the color, e.g. #ff0000 means red */
-        color: #000000;
+      /* change the color, e.g. #ff0000 means red */
+      color: #000000;
 
-        text-align: center;
+      text-align: center;
 
-        /* To have a border surrounding the text */
-        /* border: 2px solid black; */
+      /* To have a border surrounding the text */
+      /* border: 2px solid black; */
 
-        /* outline */
-        padding: 10px;
-        margin: 15px auto;
-        width: fit-content;
-        /* outline fits around text */
+      /* outline */
+      padding: 10px;
+      margin: 15px auto;
+      width: fit-content;
+      /* outline fits around text */
     }
 
     .favorite-place {
-        float: left;
-        margin-right: 15px;
-        width: 300px;
-        height: auto;
+      float: left;
+      margin-right: 15px;
+      width: 300px;
+      height: auto;
     }
 
     .clearfix::after {
-        content: "";
-        display: table;
-        clear: both;
+      content: "";
+      display: table;
+      clear: both;
     }
 
 
     .container {
-        max-width: 700px;
-        padding: 20px;
-        text-align: left;
-        /* text flows left-to-right as normal */
+      max-width: 700px;
+      padding: 20px;
+      text-align: left;
+      /* text flows left-to-right as normal */
     }
 
     .profile-section {
-        margin-left: 40px;
-        margin-top: -20px;
-        display: flex;
-        /* puts text + photo side by side */
-        align-items: center;
-        /* vertically align them in the middle */
-        justify-content: space-between;
-        /* pushes them to opposite sides */
-        gap: 40px;
-        /* space between text and image */
+      margin-left: 40px;
+      margin-top: -20px;
+      display: flex;
+      /* puts text + photo side by side */
+      align-items: center;
+      /* vertically align them in the middle */
+      justify-content: space-between;
+      /* pushes them to opposite sides */
+      gap: 40px;
+      /* space between text and image */
     }
 
 
 
     .text {
-        flex: 1;
-        margin-top: -100px;
-        margin-left: 20px;
-        /* padding:12.5%;
+      flex: 1;
+      margin-top: -100px;
+      margin-left: 20px;
+      /* padding:12.5%;
         width:63%;
         vertical-align:middle
         margin-right:21110px; */
@@ -87,67 +87,96 @@
 
 
     .photo {
-        margin-top: 50px;
-        margin-right: 40px;
+      margin-top: 50px;
+      margin-right: 40px;
 
-        flex-shrink: 0;
+      flex-shrink: 0;
     }
 
     .profile-pic {
-        width: 250px;
-        /* image width */
-        height: 250px;
+      width: 250px;
+      /* image width */
+      height: 250px;
 
-        object-position: 50% 50%;
+      object-position: 50% 50%;
 
-        /* border-radius: 8px; */
-        /* small curve for rectangle corners */
-        object-fit: cover;
+      /* border-radius: 8px; */
+      /* small curve for rectangle corners */
+      object-fit: cover;
 
-        /* border: 3px solid #333; */
+      /* border: 3px solid #333; */
 
-        /* rectangle border */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        /* subtle shadow */
+      /* rectangle border */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* subtle shadow */
     }
 
 
+    /* Keep links blue even after they are clicked */
+    a:link,
+    a:visited {
+      color: #0066cc;
+      /* pick a clean modern blue */
+      text-decoration: none;
+      /* optional — remove underline */
+    }
+
+    a:hover {
+      color: #0066cc;
+      /* darker blue on hover (optional) */
+      text-decoration: underline;
+      /* underline when hovering */
+
+    }
+
+    a:active {
+      color: #003366;
+      /* when actively clicking (optional) */
+    }
 
     /* Mobile layout */
-@media (max-width: 768px) {
-  body {
-    padding: 10px;
-  }
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
 
-  .profile-section {
-    flex-direction: column;    /* stack text and image vertically */
-    align-items: left;       /* center them */
-    text-align: left;        /* center text */
-    gap: 20px;                 /* smaller gap between text & photo */
-  }
+      .profile-section {
+        flex-direction: column;
+        /* stack text and image vertically */
+        align-items: left;
+        /* center them */
+        text-align: left;
+        /* center text */
+        gap: 20px;
+        /* smaller gap between text & photo */
+      }
 
-  .profile-pic {
-    width: 110px;              /* smaller image for phones */
-    height: 110px;
-    object-position: 50% 50%;
-  }
+      .profile-pic {
+        width: 110px;
+        /* smaller image for phones */
+        height: 110px;
+        object-position: 50% 50%;
+      }
 
-  .text{
+      .text {
         flex: 1;
         margin-top: -100px;
         margin-left: 20px;
-  }
-  .container {
-    max-width: 90%;            /* use more of the screen width */
-    padding: 10px;
-  }
+      }
 
-  h1 {
-    font-size: 2rem;           /* smaller heading for mobile */
-  }
+      .container {
+        max-width: 90%;
+        /* use more of the screen width */
+        padding: 10px;
+      }
 
-  p {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-}
+      h1 {
+        font-size: 2rem;
+        /* smaller heading for mobile */
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+    }
