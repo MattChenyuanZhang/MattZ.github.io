@@ -62,7 +62,7 @@
 
     .profile-section {
       margin-left: 40px;
-      margin-top: -20px;
+      margin-top: -20px; 
       display: flex;
       /* puts text + photo side by side */
       align-items: center;
@@ -111,7 +111,16 @@
       /* subtle shadow */
     }
 
+.blog-title {
+  text-align: center;
 
+}
+
+.blog-date{
+  font-size: 1.1em;
+  color: #777; 
+  margin-top: -10px;
+}
     /* Keep links blue even after they are clicked */
     a:link,
     a:visited {
