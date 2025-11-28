@@ -1,0 +1,267 @@
+<!--
+update to github host:
+git add .
+git commit -m "update"
+git push 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matt Zhang 😃</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+
+</head>
+
+
+<body>
+    <div class="container">
+        <header class="blog-title">
+            <h1>Some thoughts about C++ performance optimization</h1>
+            <p class="blog-date">Nov 27, 2025</p>
+        </header>
+
+        <section class="intro">
+            <p>
+                I have a project to do in my data structure class. And the goal
+                about the project is to optimize the performance(faster speed
+                and less memory allocation). There are lots of parts that can
+                influence the performance, in fact, every line of the
+                code can potentially make a difference to the final result. I would
+                like to discuss some of my thoughts and learning about time
+                optimization.
+            </p>
+            <h2>
+                Improve the most time consuming part
+            </h2>
+            <p>
+                Luckily, things are not that bad, we don't necessarily need to improve
+                every detail. For example, if a program involves reading a file,
+                processing data, processing user input, writing to a file, and
+                we need 10 seconds for reading a file and only 1 second for
+                processing data. Then, improve the speed for processing data
+                seems trival, even though you can siginificantly shortern the
+                time from 1 second to 0.1 second(that's a lot of improvement!).
+                It might be better for you to try to think of ways to shortern
+                the time of reading a file.
+            </p>
+            <img src="blog_images/5-1.png" width="700" height="540" alt="1-1">
+            <h2>
+                Estimate the time of each stage
+            </h2>
+            <p>
+                But, of course, the first thing is
+                to know the approximate time of each stage, it's not that hard
+                if you know the time complexity, size of data and the computing
+                speed of a computer. You can approximate each stage's time as
+                below:
+            </p>
+
+            $$
+            \text{Approximate Time(Second)} \approx
+            \frac{\text{Time Complexity} \times \text{Size of Data}}{\text{Computations Per Second}}
+            $$
+
+            <p>
+                Mordern computers can usually operate 3-6 billion times every
+                second, and the <a href="https://en.wikipedia.org/wiki/Instructions_per_second#CPU_results">Intel Core
+                    i5-11600k</a>
+                can operate at 346 billion times per second. You can also test
+                your own computer's speed by writing a program. But since every
+                part of the program runs on the same computer(same computations
+                per second), we can just omit it and simply compare the product
+                of time complexity and the size of data.
+            </p>
+            <h2>
+                What next?
+            </h2>
+            <p>
+                Now that we know the part of the program mostly needed to improve,
+                how to optimize it? There are 3 main ways to do it:
+            </p>
+            <ul>
+                <li>Data Structure</li>
+                <li>Algorithm</li>
+                <li>Code</li>
+            </ul>
+            <p>
+                For the data structure, it's about how we store data(memory) and how
+                we use data when we need them(algorithm). For the second algorithm
+                part, it's about how can we design a better way that can let
+                computer computes less time. For the last part, I mention here
+                because even if everything looks perfect, there might still
+                be some space for improvement in your code, since some code(e.g.
+                standard library code) in C++ is also implemented by ordinary
+                C++ code, it might be easy for clients to use, but might not
+                be the most efficient way to reach the goal of best performance.
+                For example:
+            </p>
+            <div style="text-align:center;">
+                <pre>
+        <code class="language-cpp">
+size_t hash_value = hash<string>{}(input_string)
+        </code>
+                </pre>
+            </div>
+            <p>
+                Here C++ standard library gives us an function: "hash<string>{}()".
+                    We input the string "input_string" and we can get a value
+                    "hash_value" that is "size_t" type. But the standard library computes
+                    the hash value based on its inner hash function, and it might
+                    probably not be the best way for less collisions and smaller bucket
+                    size(hash table size), thus may lead to more time. Therefore,
+                    if necessary, we can build our own hash function instead(especially
+                    for large data sets), this <a href="https://burtleburtle.net/bob/hash/">article</a>
+                    has more detailed explaination about how to build a better hash function.
+            </p>
+            <p>
+                I looked up some references and mostly thanks to this book: <a
+                    href="http://library.bagrintsev.me/CPP/Optimized-C%2B%2B.pdf"><em>Optimized C++</em></a>, I
+                found some ways to improve my project's performance, and they were
+                proved by my own computer. I improve them by changing the code
+                on the surface, but essentially it's for the sake of algorithm.
+                Below are some of the best ways that I would encourage you to try:
+            </p>
+            <h2>Reading a file</h2>
+            <p>
+                When we need to read a file, we usually use <strong>getline()</strong> like this:
+            </p>
+            <pre><code class="language-cpp">
+std::string Read_to_string(std::ifstream& ifstream,
+                           std::string& result)
+{
+    std::string line;
+    while (std::getline(ifstream, line))
+    {
+        result += line + "\n";
+    }
+    return result;
+}
+</code></pre>           
+            <p>
+                Here is how getline() works: the getline function extracts the character from ifstream
+                one by one until it finds the delimitation character('\n'), and
+                concatenate them into a string, which is called a line. However,
+                it's not the best way to read a file, since it needs to check
+                if each character is '\n' one by one, and concatenate them one by
+                one, which is slow(although the time complexity is still O(n)).
+            </p>
+<img src="blog_images/5-2.png" width="620" height="450" alt="1-2"> 
+            <p>
+                <strong>A better way</strong> to faster the speed is to use streambuf, streambuf is
+                the binary version of the stream, for example, 'a' will be stored
+                as '01100001' in binary string. By getting the streambuf and using
+                segtn() to get the character from the streambuf(binary string) 
+                directly, we can have a much faster speed(still O(n), but can
+                omit a lot of uncessary computes for each character). The core
+                code is shown as below:
+            </p>
+            <div style="text-align:center;">
+                <pre>
+        <code class="language-cpp">
+ifstream.rdbuf()->sgetn(&result[0], size);
+        </code>
+                </pre>
+            </div>
+            <p>
+                Here, ifstream.rdbuf() returns the streambuf of the ifstream,
+                and sgetn(&result[0], size) copys the "size" bytes of the 
+                streambuf directly, stores the binary string into the result
+                string. It skips a lot of uncessary steps when using getline(),
+                such as examining if it's newline('\n'), allocating memory when
+                the string hits the maximum size, etc. It's fair to understand
+                like this:
+            </p>
+            <img src="blog_images/5-3.png" width="620" height="380" alt="1-3"> 
+            <p>
+                I tested the time of the 2 above codes in different size of files:
+                I kept the size of each lines as 20 bytes, the only difference
+                of different files are the number of the lines. Here are my results:
+            </p>
+            <img src="blog_images/5-4.png" width="700" height="140" alt="1-4"> 
+            <p>
+                When using streambuf and extract streambuf by sgetn(), it's almost
+                8 times faster as using getline(), although the relative propotion
+                doesn't get larger as the file size getting larger(both O(n) time
+                complexity), it's still a huge improvement when file size is big!
+            </p>
+            <h2>Writing a file</h2>
+            <p>
+                Besides reading file, writing a file is also time consuming, it's
+                because we need to write the information into a disk, which is more
+                hardware related. To introduce our optimal strategy, I will introduce
+                flush first.
+            </p>
+            <p>
+                Flush is used for transfering buffer data from temporary memory
+                into permanent memory. Output streams must be flushed for their 
+                contents to be written to the output device. However, the fact
+                that we usually underestimated is when we using <em>endl</em>, it will
+                automatically flush the stream it's writing, which will consume
+                a lot of unnecessary computes. And we don't need to use flush until
+                we need to write the stream into a file. Thus, the thing we need
+                to do is to simply change the code from
+            </p>
+                        <div style="text-align:center;"; heighth: 60px;>
+                <pre>
+        <code class="language-cpp">
+file << line << endl;
+                </code>
+                </pre>
+            </div>
+            <p>
+                to:
+            </p>
+                        <div style="text-align:center;">
+                <pre>
+        <code class="language-cpp">
+file << line << '\n';
+                </code>
+                </pre>
+            </div>
+            <p>
+                Where '\n' can have the same effect as <em>endl</em> in most
+                cases. Below are my tests in writing into different size of files:
+            </p>
+            <img src="blog_images/5-5.png" width="700" height="140" alt="1-5"> 
+            <p>
+                Generally, it's around 40 times faster with '\n' compared with
+                <em>endl</em>, and the propotion doesn't scale when the file
+                gets bigger, which proves they are still in the same time 
+                complexity(O(n)).
+            </p>
+            <h2>Conclusion</h2>
+            <p>
+                The above is just some attempts I had tried, but the whole process
+                of optimization is nearly the same:
+                <ul>
+                <li>Estimate time in each step</li>
+                <li>Pick the most time consuming step</li>
+                <li>Optimization</li>
+            </ul>
+            </p>
+            <p>
+                Here I mainly discussed 2 efficient ways to shorten the time
+                of reading and writing files, I choose to emphasize this because
+                when the time of reading and writing to files is enormous compared to 
+                the other computation part such as data processing. You can try
+                to test the difference on your own computer, code is <a href = "https://github.com/MattChenyuanZhang/Optimizing-Reading-Writing-Files/tree/main"
+                >here</a>.
+            </p>
+            <p class="last-blog-date">Last modified on Nov 27, 2025</p>
+        </section>
+    </div>
+</body>
+
+</html>
