@@ -419,41 +419,30 @@ a:active {
     margin-left: 12px;
   }
 
-
-  .project-row {
-    grid-template-columns: 1fr;
-  }
-
-  .project-img {
-    max-width: 100%;
-  }
-
   body {
-    padding: 10px;
+    font-size: 17px;
+  }
+
+  a {
+    padding: 4px 0;
   }
 
   .profile-section {
     flex-direction: column;
-    /* stack text and image vertically */
-    align-items: left;
-    /* center them */
-    text-align: left;
-    /* center text */
-    gap: 20px;
-    /* smaller gap between text & photo */
+    align-items: flex-start;
+    gap: 16px;
   }
 
   .profile-pic {
-    width: 110px;
-    /* smaller image for phones */
-    height: 110px;
+    width: 120px;
+    height: 120px;
     object-position: 50% 50%;
   }
 
   .text {
     flex: 1;
-    margin-top: -100px;
-    margin-left: 20px;
+    margin-top: 0;
+    margin-left: 0;
   }
 
   .container {
@@ -471,4 +460,26 @@ a:active {
     font-size: 1rem;
     line-height: 1.5;
   }
+
+  .project-left,
+  .project-mid,
+  .project-right {
+    margin-bottom: 16px;
+  }
+
+  .project-row {
+    grid-template-columns: 1fr;
+  }
+
+  .project-img {
+    max-width: 100%;
+  }
+
+  .univ-img1,
+  .univ-img2 {
+    width: 100%;
+    margin: 0;
+  }
+
+
 }
