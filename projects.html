@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects · Matt Zhang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <div class="navigation">
+        <a href="index.html" class="nav-home">😃 Matt Zhang</a>
+        <a href="blog.html">Blog</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="resources.html">Resources</a>
+    </div>
+    <div class="container_projects">
+        <section class="quote">
+            <p>
+                ✨“What I cannot create, I do not understand.”✨
+            </p>
+            <p class="quote-author">
+                — Richard Feynman
+            </p>
+        </section>
+        <section class="project-row">
+            <div class="project-left">
+                <a href="https://www.tufts.edu">
+                    <img src="images/Tufts.jpg" alt="Tufts University" class="univ-img1">
+                </a>
+            </div>
+
+            <div class="project-mid">
+                <h3 class="project-title">Typewriter</h3>
+                <p class="project-description">
+                    Built a text editor that is able to run within user's terminal,
+                    supports most of the functionality as a basic editor (e.g. moving
+                    cursor, adding/deleting contents, saving text etc).
+                </p>
+                <ul class="project-bullets">
+                    <li>Used the Stack ADT for undo and redo functionality</li>
+                    <li>Extensively tested the "real world" edge cases (e.g. when
+                        the cursor is at top, bottom, left edge, right edge of the
+                        terminal)
+                    </li>
+                </ul>
+            </div>
+
+            <div class="project-right">
+                <img src="images/Typewriter.png" alt="Typewriter Project" class="project-img">
+            </div>
+        </section>
+
+        <!-- Add more blank space between the below and above contents -->
+        <section class="blank_space"></section>
+
+        <section class="project-row">
+            <div class="project-left">
+                <!-- <img src="images/Tufts.jpg" alt="Tufts University" class="univ-img1"> -->
+                <!-- <div class="university">Tufts University</div> -->
+            </div>
+
+            <div class="project-mid">
+                <a href="https://friendfinderconnect-5f7aaff2c18a.herokuapp.com">
+                    <h3 class="project-title">FriendFinder</h3>
+                </a>
+                <p class="project-description">
+                    Created a social website that matches users based on hobbies,
+                    location, and availability, then suggests group activities
+                    using AI.
+                </p>
+                <ul class="project-bullets">
+                    <li>Aimed to address the growing sense of loneliness by
+                        enabling meaningful connections without requiring
+                        extensive personal information upfront.
+                    </li>
+                    <li>Tech stack: HTML/CSS/JavaScript · Node.js & Express ·
+                        MongoDB Atlas · Claude (Anthropic)</li>
+                </ul>
+            </div>
+
+            <div class="project-right">
+                <a href="https://friendfinderconnect-5f7aaff2c18a.herokuapp.com">
+                    <img src="images/friendfinder.jpg" alt="FriendFinder screenshot" class="project-img">
+                </a>
+            </div>
+        </section>
+
+        <!-- Add an splitline to make it clear to read-->
+        <section class="split-line"></section>
+
+        <section class="project-row">
+            <div class="project-left">
+                <a href="https://www.zcmu.edu.cn">
+                    <img src="images/ZCMU.jpg" alt="Zhejiang Chinese Medical University" class="univ-img2">
+                </a>
+                <!-- <div class="university">Tufts University</div> -->
+            </div>
+
+            <div class="project-mid">
+                <a href="https://mattcyzhang.com/projects/Intelligent_Passenger_Flow_Analysis.pdf">
+                    <h3 class="project-title">Intelligent Passenger Flow Analysis
+                        and Prediction for Urban Rail Transit
+                    </h3>
+                </a>
+                <p class="project-desc">
+                    Designed a <strong>time-series model</strong> based on a 
+                    <strong>neural network</strong> to analyze
+                     large-scale urban transportation datasets and forecast future 
+                     passenger flow using MATLAB, SPSS.
+                </p>
+                <ul class="project-bullets">
+                    <li>Optimized neural network parameters (input–hidden weights,
+                         hidden/output thresholds) using a <strong>genetic algorithm</strong> to 
+                         obtain globally optimal solutions.</li>
+                    <li>Incorporated <strong>feature engineering</strong> principles 
+                        by selecting key variables 
+                        (e.g. weather, temperature, and holiday indicators) from 
+                        multi-factor datasets (e.g. anonymized metro trip 
+                        records, station metadata, and user attributes).</li>
+                </ul>
+            </div>
+
+            <div class="project-right image-swap">
+                <a href="https://mattcyzhang.com/projects/Intelligent_Passenger_Flow_Analysis.pdf">
+                    <img src="images/Intelligent_Passenger_Flow_Analysis_and_Prediction.png"
+                        class="project-img img-default">
+
+                    <img src="images/Example_Chart.png" class="project-img img-hover">
+                </a>
+            </div>
+        </section>
+    </div>
+</body>
+
+<footer class="site-footer">
+    2026 Matt Zhang
+</footer>
+
+</html>
