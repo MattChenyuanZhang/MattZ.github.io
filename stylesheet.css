@@ -433,6 +433,12 @@ a:active {
     gap: 16px;
   }
 
+  .photo {
+    order: -1; /* move image ABOVE text */
+    margin-top: 0;
+    margin-right: 0;
+  }
+  
   .profile-pic {
     width: 120px;
     height: 120px;
