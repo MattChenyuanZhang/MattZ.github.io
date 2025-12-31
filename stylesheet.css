@@ -435,10 +435,10 @@ a:active {
 
   .photo {
     order: -1; /* move image ABOVE text */
-    margin-top: 0;
-    margin-right: 0;
+    margin-top: 20px;
+    margin-right: 20px;
   }
-  
+
   .profile-pic {
     width: 120px;
     height: 120px;
