@@ -403,6 +403,23 @@ a:active {
 
 /* Mobile layout */
 @media (max-width: 768px) {
+
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 10px;
+  }
+
+  .nav-home {
+    margin: 0;
+  }
+
+  .navigation a:not(.nav-home) {
+    margin-left: 12px;
+  }
+
+
   .project-row {
     grid-template-columns: 1fr;
   }
