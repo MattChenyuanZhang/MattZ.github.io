@@ -435,7 +435,7 @@ a:active {
 
   .photo {
     order: -1; /* move image ABOVE text */
-    transform: translate(78px, 40px); 
+    transform: translate(78px, 20px); 
   }
 
   .profile-pic {
