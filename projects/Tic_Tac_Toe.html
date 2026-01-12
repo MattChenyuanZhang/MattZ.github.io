@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tic Tac Toe – Q-table Opponent</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  #turnBox, #winBox {
+    width: 320px;
+    margin: 10px auto;
+    padding: 8px;
+    border: 2px solid #333;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    width: 330px;
+    margin: 20px auto;
+  }
+
+  .square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #333;
+    font-size: 64px;
+    font-weight: bold;
+    user-select: none;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+  }
+
+  .square:hover {
+    background-color: #f2f2f2;
+  }
+
+  #startBtn, .sideBtn {
+    margin-top: 15px;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-color: #0077cc;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  #startBtn:hover, .sideBtn:hover {
+    background-color: #005fa3;
+  }
+
+  .controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+  }
+
+  #loadBox {
+    color: white;
+    width: 320px;
+    margin: 10px auto;
+    padding: 8px;
+    border: 2px dashed #fdfdfd;
+    font-size: 14px;
+  }
+</style>
+</head>
+
+<body>
+  <h1>Matt’s cool Tic Tac Toe</h1>
+
+  <div class="controls">
+    <button class="sideBtn" id="playXBtn">Play as X</button>
+    <button class="sideBtn" id="playOBtn">Play as O</button>
+    <button id="startBtn">Start Game</button>
+  </div>
+
+  <div id="loadBox">Loading Q tables...</div>
+
+  <div id="turnBox">Choose X or O to begin</div>
+
+  <div class="board" id="board"></div>
+
+  <div id="winBox">Win condition: 3 of the same symbol in a row</div>
+
+  <script>
+    // --- Required: must not modify ---
+    const NUM_SQUARES = 9;
+    for (i = 0; i < NUM_SQUARES; i++) {
+      id = "sq" + i;
+      document.write("<div class='square' id='" + id + "'></div>");
+    }
+    // ---------------------------------
+
+    const board = document.getElementById("board");
+    const squares = document.querySelectorAll(".square");
+    squares.forEach(sq => board.appendChild(sq));
+
+    const turnBox = document.getElementById("turnBox");
+    const winBox = document.getElementById("winBox");
+    const startBtn = document.getElementById("startBtn");
+    const playXBtn = document.getElementById("playXBtn");
+    const playOBtn = document.getElementById("playOBtn");
+    const loadBox = document.getElementById("loadBox");
+
+    // -------------------------
+    // Q table loading
+    // -------------------------
+    let QX = null; // stateKey -> [9 floats]
+    let QO = null;
+
+    async function loadTables() {
+      // robust URLs even if in subfolder
+      const qxUrl = new URL("Q_Table_X.json", window.location.href);
+      const qoUrl = new URL("Q_Table_O.json", window.location.href);
+
+      const [qxRes, qoRes] = await Promise.all([fetch(qxUrl), fetch(qoUrl)]);
+      if (!qxRes.ok) throw new Error("Failed Q_Table_X.json: HTTP " + qxRes.status);
+      if (!qoRes.ok) throw new Error("Failed Q_Table_O.json: HTTP " + qoRes.status);
+
+      QX = await qxRes.json();
+      QO = await qoRes.json();
+    }
+
+    // -------------------------
+    // Tic Tac Toe rules (same logic as your Python)
+    // state is array length 9 with: 1=X, -1=O, 0=empty
+    // -------------------------
+    const WIN_LINES = [
+      [0,1,2],[3,4,5],[6,7,8],
+      [0,3,6],[1,4,7],[2,5,8],
+      [0,4,8],[2,4,6]
+    ];
+
+    function rewardValueX(state) {
+      for (const [a,b,c] of WIN_LINES) {
+        const sum = state[a] + state[b] + state[c];
+        if (sum === 3) return { reward: 1, done: true };    // X wins
+        if (sum === -3) return { reward: -1, done: true };  // O wins
+      }
+      if (!state.includes(0)) return { reward: 0, done: true }; // draw
+      return { reward: 0, done: false };
+    }
+
+    function rewardValueO(state) {
+      for (const [a,b,c] of WIN_LINES) {
+        const sum = state[a] + state[b] + state[c];
+        if (sum === 3) return { reward: -1, done: true };   // X wins (bad for O)
+        if (sum === -3) return { reward: 1, done: true };   // O wins
+      }
+      if (!state.includes(0)) return { reward: 0, done: true };
+      return { reward: 0, done: false };
+    }
+
+    function nextState(state, action, playerVal) {
+      const s = state.slice();
+      s[action] = playerVal;
+      return s;
+    }
+
+    function legalActions(state) {
+      const acts = [];
+      for (let i = 0; i < 9; i++) if (state[i] === 0) acts.push(i);
+      return acts;
+    }
+
+    function stateKey(state) {
+      // MUST match your Python exporter: "," joined values
+      return state.join(",");
+    }
+
+    // epsilon-greedy, but for gameplay we use epsilon=0 (pure greedy)
+    function epsilonGreedy(Q, state, epsilon) {
+      const acts = legalActions(state);
+      if (acts.length === 0) return null;
+
+      // if table not loaded, fallback random (so game still works)
+      if (!Q) return acts[Math.floor(Math.random() * acts.length)];
+
+      if (Math.random() < epsilon) {
+        return acts[Math.floor(Math.random() * acts.length)];
+      }
+
+      const key = stateKey(state);
+      const qvals = Q[key];
+      if (!qvals) {
+        // unseen state -> random legal
+        return acts[Math.floor(Math.random() * acts.length)];
+      }
+
+      let best = -Infinity;
+      for (const a of acts) best = Math.max(best, qvals[a]);
+
+      const bestActs = acts.filter(a => qvals[a] === best);
+      return bestActs[Math.floor(Math.random() * bestActs.length)];
+    }
+
+    function winnerFromState(state) {
+      for (const [a,b,c] of WIN_LINES) {
+        const sum = state[a] + state[b] + state[c];
+        if (sum === 3) return 1;
+        if (sum === -3) return -1;
+      }
+      return 0;
+    }
+
+    // -------------------------
+    // UI/game state (your style)
+    // -------------------------
+    let currentPlayer;   // "X" or "O" (whose turn)
+    let gameOver = false;
+
+    // human/computer roles
+    let human = null;     // 1 for X, -1 for O
+    let computer = null;  // opposite
+
+    // internal numeric state for Q table
+    let state = Array(9).fill(0);
+
+    // side selection buttons
+    playXBtn.addEventListener("click", () => chooseSide(1));
+    playOBtn.addEventListener("click", () => chooseSide(-1));
+
+    // start game or restart
+    startBtn.addEventListener("click", startGame);
+
+    function chooseSide(humanVal) {
+      human = humanVal;
+      computer = -humanVal;
+      turnBox.innerText = "Selected: You are " + (human === 1 ? "X" : "O") + ". Click Start Game.";
+    }
+
+    function startGame() {
+      // must choose side first
+      if (human === null) {
+        turnBox.innerText = "Please choose Play as X or Play as O first!";
+        return;
+      }
+
+      squares.forEach(sq => sq.innerText = "");
+      winBox.innerText = "Winner: –";
+      gameOver = false;
+
+      // reset numeric state
+      state = Array(9).fill(0);
+
+      // X always starts in Tic Tac Toe
+      currentPlayer = "X";
+      turnBox.innerText = "X's Turn";
+
+      // if human chose O, computer (X) moves immediately
+      if (human === -1) {
+        setTimeout(computerMove, 150);
+      }
+    }
+
+    function handleSquareClick(event) {
+      if (gameOver) return;
+      if (human === null) return; // must choose side
+      if (currentPlayer !== (human === 1 ? "X" : "O")) return; // not human's turn
+
+      const square = event.target;
+      const index = Array.from(squares).indexOf(square);
+
+      if (square.innerText !== "") return; // no overwrite
+
+    //   alert("Square number: " + index); // still required popup
+
+      // apply human move
+      const humanSymbol = (human === 1) ? "X" : "O";
+      square.innerText = humanSymbol;
+      state[index] = human; // 1 or -1
+
+      // check after move
+      checkGameStatus();
+
+      // then computer moves if game not over
+      if (!gameOver) {
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
+        turnBox.innerText = currentPlayer + "'s Turn";
+        setTimeout(computerMove, 150);
+      }
+    }
+
+    squares.forEach(sq => sq.addEventListener("click", handleSquareClick));
+
+    function computerMove() {
+      if (gameOver) return;
+
+      const computerSymbol = (computer === 1) ? "X" : "O";
+      if (currentPlayer !== computerSymbol) return;
+
+      const Q = (computer === 1) ? QX : QO;
+
+      // pure greedy during play
+      const action = epsilonGreedy(Q, state, 0.0);
+      if (action === null) {
+        checkGameStatus();
+        return;
+      }
+
+      // place move on UI and numeric state
+      squares[action].innerText = computerSymbol;
+      state[action] = computer;
+
+      // check after move
+      checkGameStatus();
+
+      if (!gameOver) {
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
+        turnBox.innerText = currentPlayer + "'s Turn";
+      }
+    }
+
+    function checkGameStatus() {
+      // Keep your original "moves array" approach for display logic
+      let moves = [];
+      squares.forEach(sq => {
+        moves.push(sq.innerText === "" ? "-" : sq.innerText);
+      });
+
+      const winConditions = [
+        moves[0] + moves[1] + moves[2],
+        moves[3] + moves[4] + moves[5],
+        moves[6] + moves[7] + moves[8],
+        moves[0] + moves[3] + moves[6],
+        moves[1] + moves[4] + moves[7],
+        moves[2] + moves[5] + moves[8],
+        moves[0] + moves[4] + moves[8],
+        moves[2] + moves[4] + moves[6]
+      ];
+
+      for (let combo of winConditions) {
+        if (combo === "XXX" || combo === "OOO") {
+          gameOver = true;
+          winBox.innerText = "Winner: " + combo[0] + " 🎉";
+          turnBox.innerText = "Game Over!";
+          return;
+        }
+      }
+
+      if (!moves.includes("-")) {
+        gameOver = true;
+        winBox.innerText = "Stalemate 🤝";
+        turnBox.innerText = "Game Over!";
+      }
+    }
+
+    // -------------------------
+    // Boot: load Q tables then allow play
+    // -------------------------
+    (async function init() {
+      try {
+        await loadTables();
+        loadBox.innerText = "Q tables loaded ✓ (AI ready)";
+      } catch (e) {
+        console.error(e);
+        loadBox.innerText = "Failed to load Q tables ✗ (AI will play random fallback)";
+      }
+
+      // don't auto-start (your style uses Start button)
+      turnBox.innerText = "Choose X or O, then click Start Game";
+      winBox.innerText = "Win condition: 3 of the same symbol in a row";
+    })();
+  </script>
+</body>
+</html>
