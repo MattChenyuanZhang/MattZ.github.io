@@ -401,6 +401,35 @@ a:active {
   /* space above & below the line */
 }
 
+/******************* Pill Button *********************/
+
+/* pill button */
+.pill-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 4px 9px;
+    border-radius: 99px;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+
+    color: #000000;
+    border: 2px solid #000000;
+    background-color: #fff;
+
+    transition: all 0.2s ease;
+}
+
+/* hover effect */
+.pill-link:hover {
+    background-color: #676869;
+    color: #fff;
+}
+
+/******************* Code Style *********************/
 .code-card  {
   font-size: 14px;
   line-height: 1.45;
