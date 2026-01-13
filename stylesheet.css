@@ -401,6 +401,11 @@ a:active {
   /* space above & below the line */
 }
 
+.code-card  {
+  font-size: 14px;
+  line-height: 1.45;
+}
+
 /* Mobile layout */
 @media (max-width: 768px) {
 

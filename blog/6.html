@@ -1,0 +1,391 @@
+<!--
+update to github host:
+git add .
+git commit -m "update"
+git push 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matt Zhang 😃</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css">
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+</head>
+
+
+<body>
+    <div class="container">
+        <header class="blog-title">
+            <h1>Replicating Q Learning Algorithm in Tic Tac Toe</h1>
+            <p class="blog-date">Jan 12, 2026</p>
+        </header>
+
+        <section class="intro">
+            <p>
+                By the time I replicated the algorithm, my prior knowledge is:
+                intro to machine learning from Stanford online by Andrew Ng,
+                and college level calculus.
+            </p>
+            <h2>
+                Intuition about reinforcement learning
+            </h2>
+            <p>
+                At the first glance, I think the core part about reinforcement
+                learning is <strong>feedback</strong>. A positive feedback will
+                reinforce the agent’s current behavior, while a negative
+                feedback will discourage it. Meanwhile, reinforcement learning has
+                multiple status, while supervised and unsupervised learning don’t.
+            </p>
+            <h2>
+                Restate the formula
+            </h2>
+            <p style="text-align: center;">
+                Q(S, A) ← Q(S, A) + α [ R(S') + γ maxQ(S′, a) − Q(S, A) ]
+            </p>
+<p>
+  The formula above describes the update rule for <strong>Q(S, A)</strong>. Where:
+</p>
+
+<ul>
+  <li>
+    <strong>S</strong> represents the current state of the agent (e.g., its position).
+  </li>
+  <li>
+    <strong>A</strong> represents the set of actions the agent can choose from in the
+    current state (e.g., move up, down, left, or right).
+  </li>
+  <li>
+    <strong>R(S')</strong> represents the reward value at state S' (s.t. the next state
+    of S after taking action A).
+  </li>
+  <li>
+    <strong>Q(S, A)</strong>, which is the Q Value, the core component of the algorithm,
+     measures how good it is for the agent to take action <strong>A</strong> in 
+     state <strong>S</strong>.
+  </li>  
+  <li>
+    <strong>maxQ(S', a)</strong> represents the maximum Q Value among all possible actions
+    at state <strong>S'</strong>.
+  </li>
+</ul>
+  <p>
+    Collectively, all Q-values defined over states and actions form a
+    <strong>Q-table</strong>, which, once trained, serves as a decision-making guide
+    for the agent.
+  <p>
+<p>
+    <strong>Thinking:</strong> When I first encountered this algorithm, I had 
+    doubts about the term <strong>max Q(S′, a)</strong>. I initially thought it 
+    was unnecessary, since the reward <strong>R</strong> already provides positive 
+    or negative feedback for updating the Q-value. However, after experimenting
+     with the algorithm multiple times, I realized that this term is essential:
+      it propagates information about the next state’s value back to the current
+       state, allowing future rewards to influence present decisions.
+</p>
+<P>
+    For example, at the very beginning, all Q-values are initialized to zero. 
+    If the term <strong>max Q(S′, a)</strong> is removed and the reward 
+    <strong>R</strong> is only given when the agent reaches the goal state,
+     then only the Q-values associated with the second-to-last state would ever
+      be updated to a non-zero value. All earlier states would remain unchanged.
+</P>
+<img src="blog_images/6-1.png" width="700" height="240" alt="1-1">
+
+<p>    
+In contrast, when the term <strong>max Q(S′, a)</strong> is included, once the
+ terminal state’s Q-value becomes non-zero, its value can be propagated backward
+  through successive states. As a result, future rewards are gradually transferred
+   to earlier states, allowing all relevant Q-values to be updated.
+</P>
+            <h2>
+                Where to begin?
+            </h2>
+            <p>
+                I began to implement the Q Learning algorithm on a very simple problem:
+                to find the route to the goal cell as well as avoiding the obstacle 
+                cell in a 3*3 grid.
+            </p>
+<div style="text-align: center;">
+  <img src="blog_images/6-2.png" width="300" height="240" alt="1-1">
+</div>
+            <p>
+                In this problem, there are only 3*3 = <strong>9</strong> states (each cell in the
+                grid represents a state), and only <strong>4</strong> actions (up, down, left, right).
+                Thus the Q Table is extremely simple: merely a <strong>9*4</strong> table.
+            </p>
+            <p>
+                As for the reward table, the design is also very simple: the goal
+                 cell is assigned a reward of <strong>+10</strong>, the obstacle
+                  cell is assigned a reward of <strong>−10</strong>, and all other
+                   cells have a reward of <strong>0</strong>.
+            </p>
+            <p>
+                After updating the Q Table for 100000 times, the trained Q Table
+                is not only able to guide the agent to the goal cell while avoiding
+                the obstacle cell, but also make sure the path it chooses based on
+                 sequential actions is the shortest one. My interpretation is that,
+                  as Q-values are updated over time, states along shorter paths 
+                  gain an advantage because they receive the positive update from
+                  the goal cell reward earlier, thus the initial Q table value that
+                  leads to the optimal path receives a stronger reinforcement 
+                  signal from the goal cell.
+            </p>
+            <h2>
+                Tic Tac Toe
+            </h2>
+            <p>
+                Now let's dive deeper into Tic Tac Toe, the tricky part is there
+                needs 2 agents (player X and player O) to compete and train each
+                 other (Let's assume player X always plays first and player O
+                 always plays after X). The first thing came into my mind is to
+                  use 2 Q Value tables (one for player X and the other for player O).
+            </p>
+
+            <p>
+                <strong>Initialize Q tables:</strong> In the game tic tac toe, each
+                cell has 3 possible states (occupied by X, O or nothing), With 9 cells
+                 in total, this results in 3^9 =19,683 possible states.
+                Precomputing a full Q-table for all states would be cumbersome,
+                 as it would require mapping each state index to a corresponding
+                  state tuple using a ternary encoding scheme. To avoid this 
+                  complexity, I instead use a defaultdict function, which 
+                  allows Q-values to be initialized lazily only when a new state
+                   is encountered.
+            </p>
+
+<div class="code-card">
+  <pre class="language-python"><code>
+Q_Table_X = defaultdict(lambda: np.zeros(9)) # Initialize Q Table for player X 
+Q_Table_O = defaultdict(lambda: np.zeros(9)) # Initialize Q Table for player O
+  </code></pre>
+</div>
+<p>
+    <strong>Define the Reward Policy function: </strong>The reward function is
+    much easier than the Q Table, The reward is given only when three identical
+     symbols appear in a row. Conversely, a penalty is applied when the opponent
+      achieves three identical symbols in a row. Here I also defined 2 reward
+      functions for player X and O respectively:
+</p>
+
+<div class="code-card">
+  <pre class="language-python"><code>
+WIN_LINES = [
+    (0, 1, 2),  # rows
+    (3, 4, 5),
+    (6, 7, 8),
+    (0, 3, 6),  # columns
+    (1, 4, 7),
+    (2, 5, 8),
+    (0, 4, 8),  # diagonals
+    (2, 4, 6)
+]
+
+def Reward_Value_X(state):
+    for a, b, c in WIN_LINES:
+        line_sum = state[a] + state[b] + state[c]
+        if line_sum == 3:
+            return 1, True     # X wins
+        elif line_sum == -3:
+            return -1, True    # O wins
+
+    if 0 not in state:
+        return 0, True         # draw
+
+    return 0, False         # game not finished
+
+def Reward_Value_O(state):
+    for a, b, c in WIN_LINES:
+        line_sum = state[a] + state[b] + state[c]
+        if line_sum == 3:
+            return -1, True     # X wins
+        elif line_sum == -3:
+            return 1, True      # O wins
+
+    if 0 not in state:
+        return 0, True         # draw
+
+    return 0, False         # game not finished
+  </code></pre>
+</div>
+
+<p>
+    <strong>Define the E-greedy function: </strong>This function is to make sure
+    even when there exists optimal Q Value at state S, we still keep some randomness
+    to explore other possible actions (This is particularly true early in training,
+     when the action associated with the current maximum Q-value at state S may 
+     not yet be optimal.)
+</p>
+
+<div class="code-card">
+  <pre class="language-python"><code>
+def epsilon_greedy(Q, state, epsilon):
+    """
+    Q: defaultdict(lambda: np.zeros(9))
+    state: length-9 tuple
+    epsilon: exploration rate in [0, 1]
+    return: an action index 0..8 that is legal
+    """
+    legal_actions = [i for i in range(9) if state[i] == 0]
+
+    # if no legal moves, game is over
+    if not legal_actions:
+        return None
+
+    # Explore: with probability epsilon
+    if random.random() < epsilon:
+        return random.choice(legal_actions)
+
+    # Exploit: choose best legal action (break ties randomly)
+    q_values = Q[state] 
+    best_value = max(q_values[a] for a in legal_actions)
+    best_actions = [a for a in legal_actions if q_values[a] == best_value]
+    return random.choice(best_actions)
+  </code></pre>
+</div>
+
+<p>
+    <strong>Define the Next State function: </strong>It's not hard after we received
+    the action information from the E-greedy function, but still worthy to be 
+    packaged into a function.
+</p>
+
+<div class="code-card">
+  <pre class="language-python"><code>
+def Next_State(state, action, next_player):
+    s = list(state)          # convert to list so we can modify
+    s[action] = next_player  # place mark
+    return tuple(s)          # convert back to tuple (hashable)
+  </code></pre>
+</div>
+
+<p>
+    <strong>Define the Q-Value update function: </strong>This function is 
+    implemented completely based on the Q learning algorithm. Since I created
+    2 Q tables here, I needed 2 update functions.
+</p>
+
+<div class="code-card">
+  <pre class="language-python"><code>
+def Q_Value_X_after(state, action, next_state, reward, done):
+    legal_next = [i for i in range(9) if next_state[i] == 0]
+    if done == True:
+        Q_Table_X[state][action] = (Q_Table_X[state][action] 
+                    + alpha * (reward - Q_Table_X[state][action]))
+    else:
+        Q_Table_X[state][action] = (Q_Table_X[state][action] 
+                    + alpha * (reward
+                    - gamma * max(Q_Table_O[next_state][a] for a in legal_next)
+                    - Q_Table_X[state][action]))
+        
+def Q_Value_O_after(state, action, next_state, reward, done):
+    legal_next = [i for i in range(9) if next_state[i] == 0]
+    if done == True:
+        Q_Table_O[state][action] = (Q_Table_O[state][action] 
+                    + alpha * (reward - Q_Table_O[state][action]))
+    else:
+        Q_Table_O[state][action] = (Q_Table_O[state][action] 
+                    + alpha * (reward
+                    - gamma * max(Q_Table_X[next_state][a] for a in legal_next)
+                    - Q_Table_O[state][action]))
+  </code></pre>
+</div>
+
+<p>
+    <strong>The main training part: </strong>The core idea of this part is to let
+    agents play against each other alternatively based on current trained Q tables.
+    Each turn it plays, the Q table (X or O) will be updated. If we let them play 
+    a sufficient number of episodes, the Q table will converge and can reach a 
+    relatively satisfied result.
+</p>
+
+<div class="code-card">
+  <pre class="language-python"><code>
+# Initialize the epsilon value to 0.5 (i.e. 50% chance it explores)
+epsilon = 0.5
+
+# Initialize the alpha value to 0.5 
+alpha = 0.5
+
+# Initialize the gamma value to 0.5 
+gamma = 0.5
+
+X_win = 0
+O_win = 0
+draw = 0
+
+for epsiode in range(100000):
+    next_player = 1 # First action comes from player (X)
+    done = False 
+    # Initialize the initial state of the agent
+    state = (0, 0, 0,
+             0, 0, 0,
+             0, 0, 0)
+    while not done:
+         if next_player == 1: # Player (X)'s turn
+             # E policy
+             action = epsilon_greedy(Q_Table_X, state, epsilon)
+             # Next State
+             next_state = Next_State(state, action, next_player)
+             # Update Q Table
+             reward, done = Reward_Value_X(next_state)
+             if reward == 0 and done == True:
+                 draw += 1
+             if reward == 1:
+                 X_win += 1
+             Q_Value_X_after(state, action, next_state, reward, done)
+             state = next_state
+         elif next_player == -1: # Player (O)'s turn
+             # E policy
+             action = epsilon_greedy(Q_Table_O, state, epsilon)
+             # Next State
+             next_state = Next_State(state, action, next_player)
+             # Update Q Table
+             reward, done = Reward_Value_O(next_state)
+             if reward == 0 and done == True:
+                 draw += 1
+             if reward == 1:
+                 O_win += 1
+             Q_Value_O_after(state, action, next_state, reward, done)
+             state = next_state
+         next_player *= -1 # Switch the player
+    epsilon *= 0.99 # Converge the epsilon value as epsiode goes
+
+print("Times player X wins: ", X_win)
+print("Times player O wins: ", O_win)
+print("Times draw: ", draw)
+  </code></pre>
+</div>
+            <h2>Results</h2>
+            <p>
+                After training for 100000 episodes, the result shows the Q tables
+                for both player X and O are nearly optimal: with around 91.9% draw
+                rate when playing against each other. Player X has a 5.22% winning
+                rate while player O has a 2.91% winning rate.  
+            </p>
+            <p>
+                When playing with random opponent (I simulated it by assigning
+                it an all-zero Q table) with trained agents, agent X has a 0 losing
+                rate while 96.7% chance to beat the opponent; agent O also
+                has a 0 losing rate while 77.7% chance to beat the opponent.
+            </p>
+            <p class="last-blog-date">Last modified on Jan 12, 2026</p>
+
+        </section>
+    </div>
+</body>
+
+</html>
