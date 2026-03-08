@@ -31,7 +31,7 @@ git push
     <div class="container">
         <header class="blog-title">
             <h1>Lessons Learned from Implementing DDPG HER Robot Fetch and Place</h1>
-            <p class="blog-date">Jan 12, 2026</p>
+            <p class="blog-date">Mar 7, 2026</p>
         </header>
 
         <section class="intro">
@@ -49,8 +49,12 @@ git push
                 DDPG and HER
             </h2>
             <p>
-
-            </p>            
+                <a href="https://arxiv.org/abs/1509.02971">DDPG (Deep Deterministic Policy Gradient)</a>
+                 can be understood as Deep DPG, which uses deep neural network approximator based on
+                 the actor-critic architecture (<a href="https://proceedings.mlr.press/v32/silver14.pdf">DPG</a>). 
+                 For <a href="https://arxiv.org/abs/1707.01495">HER (Hindsight Experience Replay)</a>, the
+                 core idea is to make sure the model can learn from the failure reward when training using
+                 samples.
             <h2>
                 What I learned from this
             </h2>
@@ -97,7 +101,14 @@ git push
             </p>
             <p>
                 <strong>2. Try more state-of-art algorithms and try to deploy it into a physical robot.</strong>
-
+                I hope by comparing different algorithms I can have better taste about how an algorithm is designed
+                and what a good algorithm lookslike. Also I want to encounter more techinical difficulties and
+                solve them by deploying it into a physical robot.
+            </p>
+            <p>
+                <strong>3. Math notations review.</strong>
+                Specifically, read the mathematical notations in the reinforcement learning book by Sutton and Barto.
+                If I have any questions, refer to the math textbook such as linear algebra and probability theory books.
             </p>
             <h2>
                 Results
@@ -120,7 +131,7 @@ git push
 
 
 
-            <p class="last-blog-date">Last modified on Mar 7, 2026</p>
+            <p class="last-blog-date">Last modified on Mar 8, 2026</p>
 
         </section>
     </div>
