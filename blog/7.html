@@ -1,0 +1,129 @@
+<!--
+update to github host:
+git add .
+git commit -m "update"
+git push 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matt Zhang 😃</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css">
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+</head>
+
+
+<body>
+    <div class="container">
+        <header class="blog-title">
+            <h1>Lessons Learned from Implementing DDPG HER Robot Fetch and Place</h1>
+            <p class="blog-date">Jan 12, 2026</p>
+        </header>
+
+        <section class="intro">
+            <p>
+                I had been trying to implement the DDPG+HER algorithm
+                 for the robot fetch and place task for almost a whole week, and didn't
+                 succeed until the last day. It's my first time to implement
+                  a reinforcement learning algorithm from research paper, and while
+                the paper is released for almost 10 years, there are still only
+                a handful of implementations that can be found on the internet. I
+                will have a brief introduction about the algorithm and then share some
+                of my takeaways about it.
+            </p>
+            <h2>
+                DDPG and HER
+            </h2>
+            <p>
+
+            </p>            
+            <h2>
+                What I learned from this
+            </h2>
+            <p>
+                <strong>1. Coding is becoming more trivial now, but you still
+                    need to understand what each line of code is doing and know how to amend it.</strong>
+                The current ability of copilot and codex can allow you to avoid almost 100% repeatitive coding
+                and generate runnable code with low error rate according to your prompts. However, it will
+                still generate code that either causes error or not totally aligns with your intention (although
+                the chance is low), which needs your at least somewhat understanding of the code to debug it. I think
+                that's probably the main technical gap between coder and non-programmer now.
+            </p>
+            <p>
+                <strong>2. Don't trust unverifiable advices from AI.</strong>
+                During the parameter tuning process, AI like codex had given me numerous advices about how to improve
+                the successful rate. Some are good advices because they are verifiable (e.g. you can make the
+                same conclusion based on your understanding or publicly available knowledge), but a lot of
+                others are either unverifiable or provide marginal performance improvements, which won't lead you
+                 to the correct direction. I think the best way to avoid the bad advices is to try to have a deep
+                 understanding of the details of the framework. If there are still unknowns
+                 beyond the scope of human knowledge among those details, follow your intuition<sup id="fnref-1"><a href="#fn-1">[1]</a></sup>.
+
+            </p>
+            <p>
+                <strong>3. Computing power might be the potential bottleneck for research.</strong>
+                I do have heard the scaling law for neural networks before, but this time I really witnessed
+                how huge the difference is if I can shorten the time for training. It certainly took me
+                some time to understand the algorithm and code, but the remaining training time is a
+                main obstacle to achieving the satisfying performance. If there are negligible time costs
+                for each training, theoretically you can just largely increase the number of episodes and it
+                will almost certainly have a good result. In fact, it might be the main reason why we are
+                so prudent about the parameters and pay so much effort to design effective models.
+
+            </p>
+            <h2>
+                Questions and future work
+            </h2>
+            <p>
+                <strong>1. I still have no idea about how to design a novel algorithm for reinforcement learning.</strong>
+                Although I know almost every detail about the DDPG and HER algorithm, I feel like
+                I learned nothing about the principle behind the algorithm per se. But the <a href="https://arxiv.org/abs/1707.01495">HER paper</a> inspires
+                me that maybe the best way to design a algorithm is to think in a naive way, for example,
+                the original goal of HER is to learn from the failure reward, which is very intuitive.
+            </p>
+            <p>
+                <strong>2. Try more state-of-art algorithms and try to deploy it into a physical robot.</strong>
+
+            </p>
+            <h2>
+                Results
+            </h2>
+<div style="text-align:center; margin:24px 0;">
+  <a href="https://www.youtube.com/watch?v=0X20Ew3nR6w" target="_blank" rel="noopener">
+    <img src="blog_images/7-1.png"
+         alt="Video thumbnail"
+         style="max-width:560px; width:100%; height:auto; border:0;">
+  </a>
+</div>
+
+            <p id="fn-1"><sup>[1]</sup> In coding and mathematics problems, it's almost certain that
+                the answer will have binary results -- true or false. But the more complicated
+                 the decision making environment is, the harder it is to say whether a decision
+                 has absolute correctness. That's actually a good news for human beings, because
+                 no matter how advanced AI is, it will never help us make decisions that is correct
+                 by all measures. If AI we designed is aligned with human will, then the irreplaceable part
+                 of human beings will surely include the decision making part in the real world. <a href="#fnref-1">↩</a></p>
+
+
+
+            <p class="last-blog-date">Last modified on Mar 7, 2026</p>
+
+        </section>
+    </div>
+</body>
+
+</html>
