@@ -443,15 +443,20 @@ a:active {
     justify-content: space-between;
     align-items: center;
     padding: 12px 10px;
-  }
+    flex-wrap: nowrap;      /* keep one line */
+    white-space: nowrap;    /* no text wrapping */
+    overflow-x: auto;       /* allow horizontal scroll if needed */
+    }
 
   .nav-home {
     position: sticky;
+    white-space: nowrap;    /* "Matt Zhang" stays one line */
     margin: 0;
   }
 
   .navigation a:not(.nav-home) {
     margin-left: 12px;
+    flex: 0 0 auto;
   }
 
   body {
