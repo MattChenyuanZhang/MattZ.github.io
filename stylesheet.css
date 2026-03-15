@@ -446,7 +446,7 @@ a:active {
   }
 
   .nav-home {
-    position: sticky
+    position: sticky;
     margin: 0;
   }
 
