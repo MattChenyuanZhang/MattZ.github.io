@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="bar1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="bar2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#f97316"/>
+    </linearGradient>
+    <linearGradient id="bar3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bg)" rx="12"/>
+
+  <!-- Top bar -->
+  <rect x="0" y="0" width="800" height="48" fill="#16162a" rx="12"/>
+  <rect x="0" y="36" width="800" height="12" fill="#16162a"/>
+  <circle cx="28" cy="24" r="7" fill="#ff5f57"/>
+  <circle cx="52" cy="24" r="7" fill="#febc2e"/>
+  <circle cx="76" cy="24" r="7" fill="#28c840"/>
+  <text x="400" y="29" font-family="Inter, sans-serif" font-size="13" fill="#6b7280" text-anchor="middle">HAL — Assistive Task Agent</text>
+
+  <!-- Left panel: task list -->
+  <rect x="24" y="68" width="220" height="410" fill="#1e1e35" rx="10"/>
+  <text x="44" y="96" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#9ca3af" letter-spacing="1">TASKS</text>
+
+  <!-- Task items -->
+  <rect x="36" y="108" width="196" height="52" fill="#2a2a45" rx="8"/>
+  <rect x="36" y="108" width="4" height="52" fill="url(#bar1)" rx="2"/>
+  <text x="52" y="128" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">CS Homework</text>
+  <text x="52" y="146" font-family="Inter, sans-serif" font-size="10" fill="#6366f1">Due in 3h · 72% on track</text>
+
+  <rect x="36" y="168" width="196" height="52" fill="#252540" rx="8"/>
+  <rect x="36" y="168" width="4" height="52" fill="url(#bar2)" rx="2"/>
+  <text x="52" y="188" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">Research Paper</text>
+  <text x="52" y="206" font-family="Inter, sans-serif" font-size="10" fill="#f59e0b">Due tomorrow · 41% on track</text>
+
+  <rect x="36" y="228" width="196" height="52" fill="#252540" rx="8"/>
+  <rect x="36" y="228" width="4" height="52" fill="url(#bar3)" rx="2"/>
+  <text x="52" y="248" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#e2e8f0">Project Slides</text>
+  <text x="52" y="266" font-family="Inter, sans-serif" font-size="10" fill="#10b981">Due in 2d · 89% on track</text>
+
+  <rect x="36" y="288" width="196" height="52" fill="#252540" rx="8"/>
+  <rect x="36" y="288" width="4" height="52" fill="#374151" rx="2"/>
+  <text x="52" y="308" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#6b7280">Team Meeting Prep</text>
+  <text x="52" y="326" font-family="Inter, sans-serif" font-size="10" fill="#4b5563">Due in 4d · not started</text>
+
+  <!-- Right panel: main view -->
+  <rect x="260" y="68" width="516" height="410" fill="#1a1a30" rx="10"/>
+
+  <!-- Probability gauge area -->
+  <text x="280" y="96" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#9ca3af" letter-spacing="1">DEADLINE PROBABILITY</text>
+
+  <!-- Arc gauge background -->
+  <path d="M 468 240 m -130 0 a 130 130 0 0 1 260 0" fill="none" stroke="#2a2a45" stroke-width="18" stroke-linecap="round"/>
+  <!-- Arc gauge fill (72%) -->
+  <path d="M 468 240 m -130 0 a 130 130 0 0 1 260 0" fill="none" stroke="url(#accent)" stroke-width="18" stroke-linecap="round" stroke-dasharray="408" stroke-dashoffset="114" filter="url(#glow)"/>
+
+  <text x="468" y="230" font-family="Inter, sans-serif" font-size="42" font-weight="800" fill="#e2e8f0" text-anchor="middle">72%</text>
+  <text x="468" y="258" font-family="Inter, sans-serif" font-size="12" fill="#9ca3af" text-anchor="middle">CS Homework · on track</text>
+
+  <!-- Timer -->
+  <rect x="388" y="272" width="160" height="36" fill="#2a2a45" rx="18"/>
+  <text x="468" y="295" font-family="Inter, sans-serif" font-size="13" font-weight="600" fill="#6366f1" text-anchor="middle">⏱  02:14:37 active</text>
+
+  <!-- AI advice bubble -->
+  <rect x="280" y="328" width="476" height="90" fill="#1e1e40" rx="10" stroke="#6366f1" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="300" y="350" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#6366f1" letter-spacing="1">HAL ADVICE</text>
+  <text x="300" y="370" font-family="Inter, sans-serif" font-size="12" fill="#cbd5e1">Your Research Paper probability dropped below 50%. Consider</text>
+  <text x="300" y="388" font-family="Inter, sans-serif" font-size="12" fill="#cbd5e1">pausing CS Homework for 45 min — interference is high with both</text>
+  <text x="300" y="406" font-family="Inter, sans-serif" font-size="12" fill="#cbd5e1">deadlines within 24 hours.</text>
+
+  <!-- Bottom bar: tech stack -->
+  <text x="280" y="456" font-family="Inter, sans-serif" font-size="10" fill="#4b5563">FastAPI · React · Llama 3.3 70B · Groq · Vercel</text>
+  <text x="730" y="456" font-family="Inter, sans-serif" font-size="10" fill="#4b5563" text-anchor="end">hal-bay.vercel.app</text>
+</svg>

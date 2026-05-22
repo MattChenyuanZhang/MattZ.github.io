@@ -20,17 +20,59 @@
     <div class="container_projects">
         <section class="quote">
             <p>
-                ✨“What I cannot create, I do not understand.”✨
+                ✨"What I cannot create, I do not understand."✨
             </p>
             <p class="quote-author">
                 — Richard Feynman
             </p>
         </section>
+
         <section class="project-row">
             <div class="project-left">
                 <a href="https://www.tufts.edu">
                     <img src="images/Tufts.jpg" alt="Tufts University" class="univ-img1">
                 </a>
+            </div>
+
+            <div class="project-mid">
+                <a href="https://hal-bay.vercel.app" target="_blank">
+                    <h3 class="project-title">HAL — Assistive Task Agent</h3>
+                </a>
+                <p class="project-description">
+                    Independently designed, built, and deployed a full-stack AI task-assistant with a
+                    <strong>3-stage LLM pipeline</strong> for intent classification, task extraction,
+                    and probability-aware planning advice.
+                </p>
+                <ul class="project-bullets">
+                    <li>Designed a custom <strong>deadline-probability algorithm</strong> modeling
+                        multi-task interference via a closed-form integral; converges in &lt;20 iterations,
+                        updating scores every second during active sessions.</li>
+                    <li>Built a time-aware recommendation module (<strong>Llama 3.3 70B</strong> via Groq)
+                        that proactively triggers advice when task finish probability drops across thresholds,
+                        with a live working timer feeding into real-time updates.</li>
+                </ul>
+                <div class="project-links">
+                    <a href="https://hal-bay.vercel.app" class="pill-link" target="_blank">
+                        🔗 Website
+                    </a>
+                    <a href="https://github.com/MattChenyuanZhang/ai-task-assistant" class="pill-link" target="_blank">
+                        &lt;/&gt; Code
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-right">
+                <a href="https://hal-bay.vercel.app" target="_blank">
+                    <img src="images/HAL.svg" alt="HAL Task Agent" class="project-img">
+                </a>
+            </div>
+        </section>
+
+        <!-- Add more blank space between the below and above contents -->
+        <section class="blank_space"></section>
+
+        <section class="project-row">
+            <div class="project-left">
             </div>
 
             <div class="project-mid">
