@@ -119,6 +119,56 @@ a:active {
   margin: 40px 0;
 }
 
+.university-link:link,
+.university-link:visited {
+  color: #4f2987;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.university-link:hover,
+.university-link:active {
+  color: #3b1f65;
+}
+
+.university-link--tufts:link,
+.university-link--tufts:visited {
+  color: #356ca5;
+}
+
+.university-link--tufts:hover,
+.university-link--tufts:active {
+  color: #28527e;
+}
+
+.university-icon {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.25em;
+  vertical-align: -0.12em;
+}
+
+.university-link--zcmu:link,
+.university-link--zcmu:visited {
+  color: #243668;
+  white-space: normal;
+}
+
+.university-link--zcmu:hover,
+.university-link--zcmu:active {
+  color: #182446;
+}
+
+.university-name-start {
+  white-space: nowrap;
+}
+
+.university-icon--seal {
+  width: 1.4em;
+  height: auto;
+  vertical-align: -0.3em;
+}
+
 .quote {
   margin-top: 0px;
   text-align: center;
