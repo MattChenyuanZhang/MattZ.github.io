@@ -1,0 +1,55 @@
+.project-showcase {
+  width: min(100%, 1000px);
+  margin: 44px auto 64px;
+}
+.showcase-project {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 44px;
+  align-items: start;
+  margin-bottom: 64px;
+}
+.showcase-copy { min-width: 0; }
+.projects-page .showcase-copy h1,
+.projects-page .showcase-copy h2 {
+  width: auto;
+  margin: 0 0 14px;
+  padding: 0;
+  font-size: 27px;
+  line-height: 1.25;
+  text-align: left;
+  color: #222;
+}
+.showcase-copy p { margin: 0 0 14px; }
+.showcase-copy .showcase-detail {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #707070;
+  margin-bottom: 18px;
+}
+.showcase-links { display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 17px; }
+.projects-page .showcase-links a {
+  color: #555;
+  text-decoration: underline;
+  text-decoration-color: #c8c8cd;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+.projects-page .showcase-links a:hover,
+.projects-page .showcase-links a:focus-visible { text-decoration-color: #555; }
+.showcase-format { font-size: .85em; }
+.showcase-visual { display: block; min-width: 0; }
+.showcase-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+.showcase-game img { max-height: 280px; object-fit: contain; }
+@media (max-width: 700px) {
+  .project-showcase { margin-top: 28px; }
+  .showcase-project { grid-template-columns: minmax(0, 1fr); gap: 22px; margin-bottom: 48px; }
+  .projects-page .showcase-copy h1,
+  .projects-page .showcase-copy h2 { font-size: 24px; }
+}

@@ -2,221 +2,82 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="images/woodland-robot/leaf-robot.ico?v=2" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/woodland-robot/leaf-robot-32.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/woodland-robot/leaf-robot-touch.png?v=2">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects · Matt Zhang</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="stylesheet.css?v=20261108-audit">
+    <link rel="stylesheet" href="projects.css?v=showcase">
 </head>
 
-<body>
+<body class="projects-page">
     <div class="navigation">
-        <a href="index.html" class="nav-home">😃 Matt Zhang</a>
+        <a href="index.html" class="nav-home"><img src="images/woodland-robot/robot-64.png" class="site-robot" width="22" height="22" alt=""> Matt Zhang</a>
         <a href="blog.html">Blog</a>
         <a href="projects.html" class="active">Projects</a>
         <a href="resources.html">Resources</a>
-        <a href="writing.html">Writing</a>
     </div>
-    <div class="container_projects">
-        <section class="quote">
-            <p>
-                ✨"What I cannot create, I do not understand."✨
-            </p>
-            <p class="quote-author">
-                — Richard Feynman
-            </p>
-        </section>
-
-        <section class="project-row">
-            <div class="project-left">
-                <a href="https://www.tufts.edu">
-                    <img src="images/Tufts.jpg" alt="Tufts University" class="univ-img1">
-                </a>
-            </div>
-
-            <div class="project-mid">
-                <a href="https://hal-bay.vercel.app" target="_blank">
-                    <h3 class="project-title">HAL — Assistive Task Agent</h3>
-                </a>
-                <p class="project-description">
-                    Independently designed, built, and deployed a full-stack AI task-assistant with a
-                    <strong>3-stage LLM pipeline</strong> for intent classification, task extraction,
-                    and probability-aware planning advice.
-                </p>
-                <ul class="project-bullets">
-                    <li>Designed a custom <strong>deadline-probability algorithm</strong> modeling
-                        multi-task interference via a closed-form integral; converges in &lt;20 iterations,
-                        updating scores every second during active sessions.</li>
-                    <li>Built a time-aware recommendation module (<strong>Llama 3.3 70B</strong> via Groq)
-                        that proactively triggers advice when task finish probability drops across thresholds,
-                        with a live working timer feeding into real-time updates.</li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://hal-bay.vercel.app" class="pill-link" target="_blank">
-                        🔗 Website
-                    </a>
-                    <a href="https://github.com/MattChenyuanZhang/ai-task-assistant" class="pill-link" target="_blank">
-                        &lt;/&gt; Code
-                    </a>
+    <main class="project-showcase" aria-label="Selected projects">
+        <article class="showcase-project" aria-labelledby="people-memory-title">
+            <div class="showcase-copy">
+                <h1 id="people-memory-title">People Memory</h1>
+                <p>A lasting memory of the people you know for your AI assistant: their needs, skills, and your past conversations.</p>
+                <p class="showcase-detail">Local MCP server · Evidence-backed recall · Relevant connection suggestions</p>
+                <div class="showcase-links">
+                    <a href="https://mattchenyuanzhang.github.io/people-memory/" target="_blank" rel="noopener">Interactive demo</a>
+                    <a href="https://github.com/MattChenyuanZhang/people-memory" target="_blank" rel="noopener">Code</a>
                 </div>
             </div>
-
-            <div class="project-right">
-                <a href="https://hal-bay.vercel.app" target="_blank">
-                    <img src="images/HAL.svg" alt="HAL Task Agent" class="project-img">
-                </a>
-            </div>
-        </section>
-
-        <!-- Add more blank space between the below and above contents -->
-        <section class="blank_space"></section>
-
-        <section class="project-row">
-            <div class="project-left">
-            </div>
-
-            <div class="project-mid">
-                <a href="projects/Tic_Tac_Toe.html">
-                    <h3 class="project-title">Q learning Tic Tac Toe</h3>
-                </a>
-                <p class="project-description">
-                    Built a Tic Tac Toe agent that is trained by <strong>Q learning
-                        Algorithm</strong>, being able to play against human player
-                    with a high winning rate and a 0 loss rate.
-                </p>
-                <ul class="project-bullets">
-                    <li>Trained <strong>separate</strong> Q-tables for Player X and Player O.</li>
-                    <li>Optimized both Q-tables through <strong>self-play</strong> between 2 players
-                        X and O controlled by computer.
-                    </li>
-                </ul>
-                <div class="project-links">
-                    <a href="https://github.com/MattChenyuanZhang/q-learning-tic-tac-toe" class="pill-link" target="_blank">
-                        &lt;/&gt; Code
-                    </a>
-                    <a href="blog/6.html#blog" class="pill-link">
-                        ✒️ Blog
-                    </a>
+            <a class="showcase-visual" href="https://mattchenyuanzhang.github.io/people-memory/" target="_blank" rel="noopener" aria-label="Open People Memory demo with fictional examples">
+                <img src="images/people-memory.png" alt="People Memory fictional chat demo showing how an assistant remembers people">
+            </a>
+        </article>
+        <article class="showcase-project" aria-labelledby="hal-title">
+            <div class="showcase-copy">
+                <h2 id="hal-title">HAL — Assistive Task Agent</h2>
+                <p>An AI task assistant that turns natural-language goals into tasks and probability-aware planning advice.</p>
+                <p class="showcase-detail">Built independently · Three-stage LLM pipeline · Custom deadline-probability model</p>
+                <div class="showcase-links">
+                    <a href="https://hal-bay.vercel.app" target="_blank" rel="noopener">Live demo</a>
+                    <a href="https://github.com/MattChenyuanZhang/ai-task-assistant" target="_blank" rel="noopener">Code</a>
                 </div>
             </div>
-
-            <div class="project-right">
-                <a href="projects/Tic_Tac_Toe.html">
-                    <img src="images/Tic_Tac_Toe.png" alt="Tic_Tac_Toe Project" class="project-img">
-                </a>
-
+            <a class="showcase-visual" href="https://hal-bay.vercel.app" target="_blank" rel="noopener" aria-label="Open HAL live demo">
+                <img src="images/HAL.svg" alt="HAL task planner with an on-time completion probability gauge">
+            </a>
+        </article>
+        <article class="showcase-project" aria-labelledby="q-learning-title">
+            <div class="showcase-copy">
+                <h2 id="q-learning-title">Q-learning Tic Tac Toe</h2>
+                <p>A self-play agent with separate Q-tables for X and O, playable against a human opponent.</p>
+                <p class="showcase-detail">Reinforcement learning · Tabular Q-learning · Self-play</p>
+                <div class="showcase-links">
+                    <a href="projects/Tic_Tac_Toe.html">Play demo</a>
+                    <a href="https://github.com/MattChenyuanZhang/q-learning-tic-tac-toe" target="_blank" rel="noopener">Code</a>
+                    <a href="blog/6.html">Write-up</a>
+                </div>
             </div>
-        </section>
-
-        <!-- Add more blank space between the below and above contents -->
-        <section class="blank_space"></section>
-
-        <section class="project-row">
-            <div class="project-left">
+            <a class="showcase-visual showcase-game" href="projects/Tic_Tac_Toe.html" aria-label="Play Q-learning Tic Tac Toe">
+                <img src="images/Tic_Tac_Toe.png" alt="Q-learning Tic Tac Toe board with X and O moves" loading="lazy">
+            </a>
+        </article>
+        <article class="showcase-project" aria-labelledby="rail-title">
+            <div class="showcase-copy">
+                <h2 id="rail-title">Urban Rail Passenger Flow Prediction</h2>
+                <p>Neural-network forecasting with genetic-algorithm optimization and contextual features such as weather and holidays.</p>
+                <p class="showcase-detail">MATLAB · SPSS · Time-series prediction</p>
+                <div class="showcase-links">
+                    <a href="projects/Intelligent_Passenger_Flow_Analysis.pdf">Paper <span class="showcase-format">(PDF)</span></a>
+                </div>
             </div>
-
-            <div class="project-mid">
-                <h3 class="project-title">Typewriter</h3>
-                <p class="project-description">
-                    Built a text editor that is able to run within user's terminal,
-                    supports most of the functionality as a basic editor (e.g. moving
-                    cursor, adding/deleting contents, saving text etc).
-                </p>
-                <ul class="project-bullets">
-                    <li>Used the Stack ADT for undo and redo functionality</li>
-                    <li>Extensively tested the "real world" edge cases (e.g. when
-                        the cursor is at top, bottom, left edge, right edge of the
-                        terminal)
-                    </li>
-                </ul>
-            </div>
-
-            <div class="project-right">
-                <img src="images/Typewriter.png" alt="Typewriter Project" class="project-img">
-            </div>
-        </section>
-
-        <!-- Add more blank space between the below and above contents -->
-        <section class="blank_space"></section>
-
-        <section class="project-row">
-            <div class="project-left">
-                <!-- <img src="images/Tufts.jpg" alt="Tufts University" class="univ-img1"> -->
-                <!-- <div class="university">Tufts University</div> -->
-            </div>
-
-            <div class="project-mid">
-                <a href="https://friendfinderconnect-5f7aaff2c18a.herokuapp.com">
-                    <h3 class="project-title">FriendFinder</h3>
-                </a>
-                <p class="project-description">
-                    Created a social website that matches users based on hobbies,
-                    location, and availability, then suggests group activities
-                    using AI.
-                </p>
-                <ul class="project-bullets">
-                    <li>Aimed to address the growing sense of loneliness by
-                        enabling meaningful connections without requiring
-                        extensive personal information upfront.
-                    </li>
-                    <li>Tech stack: HTML/CSS/JavaScript · Node.js & Express ·
-                        MongoDB Atlas · Claude (Anthropic)</li>
-                </ul>
-            </div>
-
-            <div class="project-right">
-                <a href="https://friendfinderconnect-5f7aaff2c18a.herokuapp.com">
-                    <img src="images/friendfinder.jpg" alt="FriendFinder screenshot" class="project-img">
-                </a>
-            </div>
-        </section>
-
-        <!-- Add an splitline to make it clear to read-->
-        <section class="split-line"></section>
-
-        <section class="project-row">
-            <div class="project-left">
-                <a href="https://www.zcmu.edu.cn">
-                    <img src="images/ZCMU.jpg" alt="Zhejiang Chinese Medical University" class="univ-img2">
-                </a>
-                <!-- <div class="university">Tufts University</div> -->
-            </div>
-
-            <div class="project-mid">
-                <a href="https://mattcyzhang.com/projects/Intelligent_Passenger_Flow_Analysis.pdf">
-                    <h3 class="project-title">Intelligent Passenger Flow Analysis
-                        and Prediction for Urban Rail Transit
-                    </h3>
-                </a>
-                <p class="project-desc">
-                    Designed a <strong>time-series model</strong> based on a
-                    <strong>neural network</strong> to analyze
-                    large-scale urban transportation datasets and forecast future
-                    passenger flow using MATLAB, SPSS.
-                </p>
-                <ul class="project-bullets">
-                    <li>Optimized neural network parameters (input–hidden weights,
-                        hidden/output thresholds) using a <strong>genetic algorithm</strong> to
-                        obtain globally optimal solutions.</li>
-                    <li>Incorporated <strong>feature engineering</strong> principles
-                        by selecting key variables
-                        (e.g. weather, temperature, and holiday indicators) from
-                        multi-factor datasets (e.g. anonymized metro trip
-                        records, station metadata, and user attributes).</li>
-                </ul>
-            </div>
-
-            <div class="project-right image-swap">
-                <a href="https://mattcyzhang.com/projects/Intelligent_Passenger_Flow_Analysis.pdf">
-                    <img src="images/Intelligent_Passenger_Flow_Analysis_and_Prediction.png"
-                        class="project-img img-default">
-
-                    <img src="images/Example_Chart.png" class="project-img img-hover">
-                </a>
-            </div>
-        </section>
-    </div>
+            <a class="showcase-visual" href="projects/Intelligent_Passenger_Flow_Analysis.pdf" aria-label="Read the passenger flow prediction paper, PDF">
+                <img src="images/Example_Chart.png" alt="Chart from the urban rail passenger flow analysis project" loading="lazy">
+            </a>
+        </article>
+    </main>
+    <script src="page-reveal.js?v=20261108-1"></script>
 </body>
-
-
 </html>

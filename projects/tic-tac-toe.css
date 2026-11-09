@@ -1,0 +1,51 @@
+/* Scope demo styles so the shared site header stays identical to other pages. */
+body.game-page {
+  margin: 0;
+  text-align: left;
+  font-family: "EB Garamond", serif;
+}
+.game-page .game-content {
+  width: min(100%, 700px);
+  margin: 32px auto 48px;
+  text-align: center;
+}
+.game-page h1 { font-size: 27px; line-height: 1.3; margin: 0 0 24px; }
+.game-page .board {
+  width: min(100%, 330px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: none;
+}
+.game-page .square {
+  aspect-ratio: 1;
+  font-family: Arial, sans-serif;
+  background: white;
+  font-size: clamp(36px, 12vw, 64px);
+}
+.game-page .square:focus-visible { outline: 3px solid #777; outline-offset: -5px; }
+.game-page #turnBox,
+.game-page #winBox,
+.game-page #loadBox {
+  box-sizing: border-box;
+  width: min(100%, 350px);
+  border: 0;
+  padding: 4px;
+  font-weight: normal;
+  color: #555;
+}
+.game-page #loadBox { color: #707070; }
+.game-page #startBtn,
+.game-page .sideBtn {
+  background: #333;
+  color: white;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: normal;
+  transition: background-color 150ms;
+}
+.game-page #startBtn:hover,
+.game-page .sideBtn:hover { background: #555; }
+.game-page button:focus-visible { outline: 2px solid #777; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  .game-page .square, .game-page #startBtn, .game-page .sideBtn { transition: none; }
+}

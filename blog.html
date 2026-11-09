@@ -2,38 +2,41 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" href="images/woodland-robot/leaf-robot.ico?v=2" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/woodland-robot/leaf-robot-32.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/woodland-robot/leaf-robot-touch.png?v=2">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog · Matt Zhang</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="stylesheet.css?v=20261108-audit">
 </head>
 
-<body>
+<body class="blog-page">
     <div class="navigation">
-        <a href="index.html" class="nav-home">😃 Matt Zhang</a>
+        <a href="index.html" class="nav-home"><img src="images/woodland-robot/robot-64.png" class="site-robot" width="22" height="22" alt=""> Matt Zhang</a>
         <a href="blog.html" class="active">Blog</a>
         <a href="projects.html">Projects</a>
         <a href="resources.html">Resources</a>
-        <a href="writing.html">Writing</a>
     </div>
-    <div class="container">
-        <!-- <h1>Blog</h1> -->
-
-        <ul class="list">
-            <h3>2026</h3>
-            <li><span class="date">03/07</span>   - <a href="blog/7.html">Lessons Learned from Reimplementing DDPG HER Robot Fetch and Place</a></li> 
-            <li><span class="date">01/12</span>  - <a href="blog/6.html">Replicating Q Learning Algorithm in Tic Tac Toe</a></li> 
-            <h3>2025</h3>           
-            <li><span class="date">11/27</span> - <a href="blog/5.html">Some thoughts about C++ performance
-                    optimization</a></li>
-            <!-- <li><span class="date">11/01</span> - <a href="blog/4.html">It's time to start</a></li> -->
-            <!-- <li><span class="date">10/27</span> - <a href="blog/3.html">Evidence of people still need to learn
-                    coding</a></li>
-            <li><span class="date">10/21</span> - <a href="blog/2.html">Rules I believe</a></li>
-            <li><span class="date">10/14</span> - <a href="blog/1.html">My thoughts about future</a></li> -->
-        </ul>
-
-    </div>
+    <main class="container blog-timeline" aria-label="Blog posts">
+        <section aria-labelledby="year-2026">
+            <h2 id="year-2026">2026</h2>
+            <ul>
+                <li><time datetime="2026-08-30">08/30</time><a href="blog/roboticscenter-lessons.html">Lessons learned from building the startup (RoboticsCenter)</a></li>
+                <li><time datetime="2026-08-01">08/01</time><a href="blog/recap-2024-2026.html">A recap about my 2024 to 2026</a></li>
+                <li><time datetime="2026-03-13">03/13</time><a href="blog/the-only-child.html">The Only Child</a></li>
+                <li><time datetime="2026-03-07">03/07</time><a href="blog/7.html">Lessons Learned from Reimplementing DDPG HER Robot Fetch and Place</a></li>
+                <li><time datetime="2026-01-12">01/12</time><a href="blog/6.html">Replicating Q Learning Algorithm in Tic Tac Toe</a></li>
+            </ul>
+        </section>
+        <section aria-labelledby="year-2025">
+            <h2 id="year-2025">2025</h2>
+            <ul>
+                <li><time datetime="2025-11-27">11/27</time><a href="blog/5.html">Some thoughts about C++ performance optimization</a></li>
+            </ul>
+        </section>
+    </main>
+    <script src="page-reveal.js?v=20261108-1"></script>
 </body>
 </html>

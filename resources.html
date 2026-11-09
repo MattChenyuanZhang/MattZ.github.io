@@ -1,168 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="images/woodland-robot/leaf-robot.ico?v=2" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/woodland-robot/leaf-robot-32.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/woodland-robot/leaf-robot-touch.png?v=2">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources · Matt Zhang</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheet.css">
-    <style>
-        html {
-            overflow-y: scroll;
-        }
-        note {
-            display: block;
-            margin: 2px 0 4px 1.5em;
-            font-size: 1em;
-            color: #000000;
-        }
-    </style>
+    <link rel="stylesheet" href="stylesheet.css?v=20261108-audit">
+    <link rel="stylesheet" href="resources.css?v=20261108-red-outline">
+    <script src="resources.js?v=scrollspy" defer></script>
 </head>
-
-<body>
-    <div class="navigation">
-        <a href="index.html" class="nav-home">😃 Matt Zhang</a>
+<body class="resources-page">
+    <a class="skip-link" href="#resource-content">Skip to resources</a>
+    <nav class="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-home"><img src="images/woodland-robot/robot-64.png" class="site-robot" width="22" height="22" alt=""> Matt Zhang</a>
         <a href="blog.html">Blog</a>
         <a href="projects.html">Projects</a>
-        <a href="resources.html" class="active">Resources</a>
-        <a href="writing.html">Writing</a>
+        <a href="resources.html" class="active" aria-current="page">Resources</a>
+    </nav>
+    <div class="resources-layout">
+        <nav class="resource-topics" aria-label="Resource categories">
+            <a href="#college" aria-current="location">College study</a>
+            <a href="#graduate">Grad school (general)</a>
+            <a href="#cs-phd">Grad School (Computer Science)</a>
+            <a href="#great-work">Great work</a>
+            <a href="#ai">AI</a>
+            <a href="#cold-emails">Cold emails</a>
+            <a href="#careers">Finding a job</a>
+        </nav>
+        <main id="resource-content" aria-label="Resources">
+            <section class="resource-section" id="college" aria-labelledby="college-heading">
+                <h2 id="college-heading">Undergrad/College Study</h2>
+                <ul>
+                    <li class="resource-item"><a class="resource-title" href="https://web.archive.org/web/20170613052814/http://cs.stanford.edu/people/karpathy/advice.html">Doing well in your courses</a> <span class="resource-author">— <a href="https://karpathy.ai">Andrej Karpathy</a></span></li>
+                    <li class="resource-item"><a class="resource-title" href="https://sp19.datastructur.es/materials/guides/study-guide">Exam study guide</a> <span class="resource-author">— Josh Hug · Berkeley CS61B</span></li>
+                    <li class="resource-item"><a class="resource-title" href="https://www.reddit.com/r/csMajors/s/9OW2JUOcOE">How to get good grades in Computer Science</a> <span class="resource-author">— reddit</span></li>
+                    <li class="resource-item"><a class="resource-title" href="https://admissions.usf.edu/blog/how-to-make-the-most-of-your-professors-office-hours">How to Make the Most of Your Professor&#x27;s Office Hours</a> <span class="resource-author">— University of South Florida</span></li>
+                    <li class="resource-item"><a class="resource-title" href="https://matt.might.net/articles/college-tips">College tips, tricks and hacks</a> <span class="resource-author">— <a href="https://matt.might.net">Matt Might</a></span></li>
+                </ul>
+            </section>
+            <section class="resource-section" id="graduate" aria-labelledby="graduate-heading">
+                <h2 id="graduate-heading">Grad School (General)</h2>
+                <ul>
+                    <li class="resource-item"><a class="resource-title" href="https://matt.might.net/articles/how-to-apply-and-get-in-to-graduate-school-in-science-mathematics-engineering-or-computer-science">HOWTO: Get into grad school for STEM</a> <span class="resource-author">— <a href="https://matt.might.net">Matt Might</a></span></li>
+                </ul>
+            </section>
+            <section class="resource-section" id="cs-phd" aria-labelledby="cs-phd-heading">
+                <h2 id="cs-phd-heading">Grad School (Computer Science)</h2>
+                <ul>
+                    <li class="resource-item"><a class="resource-title" href="Resources/PhD advice by Justin Sherry.pdf">Advice for applying to CS PhD</a> <span class="resource-author">— <a href="https://www.justinesherry.com">Justin Sherry</a></span></li>
+                    <li class="resource-item"><a class="resource-title" href="Resources/PhD advice by Mor Harchol-Balter.pdf">Advice for applying to CS PhD</a> <span class="resource-author">— <a href="https://www.cs.cmu.edu/~harchol">Mor Harchol-Balter</a></span></li>
+                    <li class="resource-item"><a class="resource-title" href="https://web.archive.org/web/20170612030342/http://karpathy.github.io/2016/09/07/phd/">A Survival Guide to a PhD</a> <span class="resource-author">— <a href="https://karpathy.ai">Andrej Karpathy</a></span></li>
+                    <li class="resource-item"><a class="resource-title" href="https://benchugg.com/writing/phd-thoughts/">Some thoughts from two-fifths of the way through grad school</a> <span class="resource-author">— Ben Chugg</span></li>
+                </ul>
+            </section>
+            <section class="resource-section" id="great-work" aria-labelledby="great-work-heading">
+                <h2 id="great-work-heading">How To Do Great Work</h2>
+                <ul>
+                    <li class="resource-item"><a class="resource-title" href="https://paulgraham.com/greatwork.html" data-note="One of the most insightful essays on what it actually takes to do work that matters — worth re-reading every year." aria-describedby="recommendation-note">How to do Great Work</a> <span class="resource-author">— Paul Graham</span> <span class="highly-recommended" role="img" aria-label="Highly recommended"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 10v11H3V10h4Zm0 0 5-7c.7-1 2.2-.5 2.2.7V9H20a2 2 0 0 1 2 2.4l-1.5 7A3 3 0 0 1 17.6 21H7"/></svg></span><button class="note-toggle" type="button" aria-label="Show recommendation for How to do Great Work" aria-expanded="false" aria-controls="recommendation-note">My note</button></li>
+                    <li class="resource-item"><a class="resource-title" href="https://www.cs.virginia.edu/~robins/YouAndYourResearch.html">You and Your Research</a> <span class="resource-author">— Richard Hamming</span> <span class="highly-recommended" role="img" aria-label="Highly recommended"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 10v11H3V10h4Zm0 0 5-7c.7-1 2.2-.5 2.2.7V9H20a2 2 0 0 1 2 2.4l-1.5 7A3 3 0 0 1 17.6 21H7"/></svg></span></li>
+                    <li class="resource-item"><a class="resource-title" href="http://www.catb.org/~esr/faqs/hacker-howto.html#real_hackers">Become A Hacker</a> <span class="resource-author">— Eric S. Raymond</span></li>
+                    <li class="resource-item"><a class="resource-title" href="https://docs.google.com/document/d/1Vb8WWbsVyEJzl66_qqtZfFr2uLL07Y7SJH5XKldjDPY/edit?tab=t.0">Work on the world&#x27;s hardest problems</a></li>
+                </ul>
+            </section>
+            <section class="resource-section" id="ai" aria-labelledby="ai-heading">
+                <h2 id="ai-heading">Deep Thoughts on AI</h2>
+                <ul>
+                    <li class="resource-item"><a class="resource-title" href="https://ergosphere.blog/posts/the-machines-are-fine/">The Machines Are Fine</a></li>
+                </ul>
+            </section>
+            <section class="resource-section" id="cold-emails" aria-labelledby="cold-emails-heading">
+                <h2 id="cold-emails-heading">How to Write Cold Emails</h2>
+                <ul>
+                    <li class="resource-item"><a class="resource-title" href="https://x.com/msuster/status/1124121819173154816">How to Write Cold Emails to Well-Known People</a> <span class="resource-author">— @msuster</span></li>
+                    <li class="resource-item"><a class="resource-title" href="https://x.com/lpolovets/status/1121799684136132609">Tips and Tactics for Emailing Enterprise Buyers</a> <span class="resource-author">— @lpolovets</span></li>
+                </ul>
+            </section>
+            <section class="resource-section" id="careers" aria-labelledby="careers-heading">
+                <h2 id="careers-heading">On Finding a Job</h2>
+                <ul>
+                    <li class="resource-item"><a class="resource-title" href="https://v1community.notion.site/V1-s-Recruiting-Playbook-0f12927af1e9457787c27f43e325685c">UMich&#x27;s Recruiting Playbook</a> <span class="resource-author">— V1 Community</span></li>
+                </ul>
+            </section>
+        </main>
+        <aside class="recommendation" id="recommendation-note" aria-label="Why I recommend it" hidden>
+            <p></p>
+        </aside>
+        <svg class="note-connector" aria-hidden="true"><path></path></svg>
     </div>
-    <div class="container">
-
-        <!-- <header class="profile-section">
-            <div class="text">
-                <h1>Matt Zhang</h1>
-                <p>
-                    Tufts Post-Bac Computer Science Student
-                </p>
-            </div>
-            <div class="photo">
-                <img src="matt.jpeg" alt="Matt Zhang" class="profile-pic">
-            </div>
-        </header> -->
-
-        <!-- <section class="intro">
-            <p>
-                Hi there! I’m Chenyuan (Matt) Zhang, currently a Post-Bac Computer Science
-                student at <a href="https://en.wikipedia.org/wiki/Tufts_University">Tufts University</a>. I am mainly
-                interested about <a href="https://www.mlsafety.org">AI safety</a> and always
-                passionate about how can we build human-like or even super intelligence
-                that can positively contribute to the society. In the future, I will continue thinking about these
-                2 problems and actively finding solutions to them.
-            </p>
-            <p>
-                Before that, I was a crazy gamer with a focus on 2 games:
-                <a href="https://en.wikipedia.org/wiki/Legends_of_the_Three_Kingdoms">Legends of the Three Kingdoms</a>
-                (a kind of card game) and
-                <a href="https://cfhd.cf.qq.com/main.shtml">CFHD</a>
-                (a kind of first-person shooting game), in both of which I am near the top 1% level.
-            </p>
-            <p>
-                I obtained my B.S. in Clinical Medicine from
-                <a href="https://en.wikipedia.org/wiki/Zhejiang_Chinese_Medical_University">Zhejiang Chinese Medical
-                    University</a>.
-            </p>
-        </section>
-
-        <section class="blog">
-            <h2>Blog</h2>
-            <ul>
-                <li><span class="date">11/27</span> - <a href="blog/5.html">Some thoughts about C++ performance
-                        optimization</a></li>
-                <li><span class="date">11/01</span> - <a href="blog/4.html">It's time to start</a></li>
-                <li><span class="date">10/27</span> - <a href="blog/3.html">Evidence of people still need to learn
-                        coding</a></li>
-                <li><span class="date">10/21</span> - <a href="blog/2.html">Rules I believe</a></li>
-                <li><span class="date">10/14</span> - <a href="blog/1.html">My thoughts about future</a></li>
-            </ul>
-        </section>
-
-        <section class="Resources">
-            <h2>Resources</h2>
-            <ul>
-                <li><a href="https://karpathy.ai">Andrej Karpathy: </a><a
-                        href="https://web.archive.org/web/20170613052814/http://cs.stanford.edu/people/karpathy/advice.html">Doing
-                        well in your courses</a></li>
-                <li><a href="https://sp19.datastructur.es/materials/guides/study-guide">Exam study guide</a></li>
-                <li><a href=https://www.reddit.com/r/csMajors/s/9OW2JUOcOE>How to get good grades in Computer
-                        Science</a></li>
-                <li><a href=https://admissions.usf.edu/blog/how-to-make-the-most-of-your-professors-office-hours>How to
-                        Make the Most of Your Professor's Office
-                        Hours</a></li>
-                <li><a href=https://matt.might.net>Matt Might: </a><a
-                        href=https://matt.might.net/articles/college-tips>College tips, tricks and hacks</a>
-                </li>
-                <li><a href=https://matt.might.net>Matt Might: </a><a
-                        href=https://matt.might.net/articles/how-to-apply-and-get-in-to-graduate-school-in-science-mathematics-engineering-or-computer-science>HOWTO:
-                        Get into grad school
-                        for STEM</a></li>
-                <li><a href=https://www.justinesherry.com>Justin Sherry: </a><a
-                        href="Resources/PhD advice by Justin Sherry.pdf">Advice for applying to CS
-                        PhD </a></li>
-                <li><a href=https://www.cs.cmu.edu/~harchol>Mor Harchol-Balter: </a><a
-                        href="Resources/PhD advice by Mor Harchol-Balter.pdf">Advice for applying to
-                        CS PhD</a></li>
-                <li><a href="https://karpathy.ai">Andrej Karpathy: </a><a
-                        href="https://web.archive.org/web/20170612030342/http://karpathy.github.io/2016/09/07/phd/">A
-                        Survival Guide to a PhD</a></li>
-
-            </ul>
-        </section>
-
-        <section class="contact">
-            <h2>Contact</h2>
-            <p>
-                <a href="mailto:mattzhang@example.com">Email</a> ·
-                <a href="https://github.com/MattChenyuanZhang">GitHub</a> ·
-                <a href="https://www.linkedin.com/in/matt-zhang-621850336/">LinkedIn</a>
-            </p>
-        </section> -->
-
-        <ul class="list">
-            <h3>Undergrad/College Study</h3>
-            <li><a href="https://karpathy.ai">Andrej Karpathy:</a> <a
-                    href="https://web.archive.org/web/20170613052814/http://cs.stanford.edu/people/karpathy/advice.html">Doing
-                    well in your courses</a></li>
-            <li><a href="https://sp19.datastructur.es/materials/guides/study-guide">Exam study guide</a></li>
-            <li><a href="https://www.reddit.com/r/csMajors/s/9OW2JUOcOE">How to get good grades in Computer Science</a>
-            </li>
-            <li><a href="https://admissions.usf.edu/blog/how-to-make-the-most-of-your-professors-office-hours">How to
-                    Make the Most of Your Professor's Office Hours</a></li>
-            <li><a href="https://matt.might.net">Matt Might:</a> <a
-                    href="https://matt.might.net/articles/college-tips">College tips, tricks and hacks</a></li>
-            <h3>Grad School (General)</h3>
-            <li><a href="https://matt.might.net">Matt Might:</a> <a
-                    href="https://matt.might.net/articles/how-to-apply-and-get-in-to-graduate-school-in-science-mathematics-engineering-or-computer-science">HOWTO:
-                    Get into grad school for STEM</a></li>
-            <h3>Grad School (Computer Science)</h3>
-            <li><a href="https://www.justinesherry.com">Justin Sherry:</a> <a
-                    href="Resources/PhD advice by Justin Sherry.pdf">Advice for applying to CS PhD</a></li>
-            <li><a href="https://www.cs.cmu.edu/~harchol">Mor Harchol-Balter:</a> <a
-                    href="Resources/PhD advice by Mor Harchol-Balter.pdf">Advice for applying to CS PhD</a></li>
-            <li><a href="https://karpathy.ai">Andrej Karpathy:</a> <a
-                    href="https://web.archive.org/web/20170612030342/http://karpathy.github.io/2016/09/07/phd/">A
-                    Survival Guide to a PhD</a></li>
-            <li><a href="https://benchugg.com/writing/phd-thoughts/">Ben Chugg: Some thoughts from two-fifths of the way through grad school</a> </li>
-            <h3>How To Do Great Work</h3>
-            <li>
-                <a href="https://paulgraham.com/greatwork.html">Paul Graham: How to do Great Work</a>
-                <!-- <note>One of the most insightful essays on what it actually takes to do work that matters — worth re-reading every year.</note> -->
-            </li>
-            <li><a href="https://www.cs.virginia.edu/~robins/YouAndYourResearch.html">Richard Hamming: You and Your Research</a></li>
-            <li><a href="http://www.catb.org/~esr/faqs/hacker-howto.html#real_hackers">Become A Hacker</a></li>
-            <li><a href="https://docs.google.com/document/d/1Vb8WWbsVyEJzl66_qqtZfFr2uLL07Y7SJH5XKldjDPY/edit?tab=t.0">Work on the world's hardest problems</a></li>
-            <h3>Deep Thoughts on AI</h3>
-            <li><a href="https://ergosphere.blog/posts/the-machines-are-fine/">The Machines Are Fine</a></li>
-            <h3>How to Write Cold Emails</h3>
-            <li><a href="https://x.com/msuster/status/1124121819173154816">How to Write Cold Emails to Well-Known People</a></li>
-            <li><a href="https://x.com/lpolovets/status/1121799684136132609">Tips and Tactics for Emailing Enterprise Buyers</a></li>
-            <h3>On Finding a Job</h3>
-            <li><a href="https://v1community.notion.site/V1-s-Recruiting-Playbook-0f12927af1e9457787c27f43e325685c" target="_blank">UMich's Recruiting Playbook</a></li>
-        </ul>
-
-    </div>
-
+    <script src="page-reveal.js?v=20261108-1"></script>
 </body>
-
 </html>

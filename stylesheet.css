@@ -1,3 +1,8 @@
+/* Reserve scrollbar space on short and long pages so navigation stays aligned. */
+html {
+  overflow-y: scroll;
+}
+
 body {
   font-family: "EB Garamond", serif;
   font-weight: 400;
@@ -33,6 +38,22 @@ a:hover {
 
 a:active {
   color: #003366;
+}
+
+.home-page .intro a:not(.university-link) {
+  color: #555;
+  text-decoration: underline;
+  text-decoration-color: #c8c8cd;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.home-page .intro a:not(.university-link):hover,
+.home-page .intro a:not(.university-link):focus-visible {
+  color: #555;
+  text-decoration: underline;
+  text-decoration-color: #555;
 }
 
 .favorite-place {
@@ -117,6 +138,15 @@ a:active {
   height: 1px;
   background: rgba(0, 0, 0, 0.15);
   margin: 40px 0;
+}
+
+.home-page .intro::before,
+.home-page .container::after {
+  display: none;
+}
+
+.home-page .intro {
+  margin-top: 40px;
 }
 
 .university-link:link,
@@ -223,8 +253,38 @@ a:active {
 
 .navigation a {
   color: #2b2a2a;
+  font-style: normal;
   opacity: 0.85;
   transition: opacity 0.2s ease;
+}
+
+.article-page > .container { width: min(700px, 100%); box-sizing: border-box; margin-top: 24px; }
+
+/* Posts share the same quiet reading links and stay within the reading column. */
+.article-page .intro a:link,
+.article-page .intro a:visited,
+.article-page .intro a:hover,
+.article-page .intro a:active {
+  color: #555;
+  font-style: normal;
+  text-decoration: underline;
+  text-decoration-color: #c8c8cd;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+.article-page .intro a:hover,
+.article-page .intro a:focus-visible { text-decoration-color: #555; }
+.article-page .container { min-width: 0; overflow-wrap: break-word; }
+.article-page .intro img { max-width: 100%; height: auto; }
+.article-page pre { max-width: 100%; box-sizing: border-box; overflow-x: auto; text-align: left; }
+.article-page pre code { overflow-wrap: normal; }
+.article-page iframe, .article-page video { max-width: 100%; }
+.article-page mjx-container[display="true"] { max-width: 100%; overflow-x: auto; overflow-y: hidden; padding-bottom: 4px; }
+.navigation a:focus-visible { outline: 2px solid #777; outline-offset: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .navigation a, .contact-icons a { transition: none; }
 }
 
 .navigation a:hover {
@@ -232,6 +292,11 @@ a:active {
   /* becomes shallower on hover */
   text-decoration: none;
 }
+
+.navigation a:link,
+.navigation a:visited,
+.navigation a:hover,
+.navigation a:active { font-style: normal; }
 
 .nav-home {
   margin-left: -20px;
@@ -245,9 +310,16 @@ a:active {
   color: #000;
 }
 
+.site-robot {
+  width: 1.3em;
+  height: 1.3em;
+  object-fit: contain;
+  vertical-align: -0.25em;
+}
+
 .navigation a:not(.nav-home) {
   margin-left: 10px;
-  color: #6b6363;
+  color: #000;
   font-weight: 600;
 }
 
@@ -296,6 +368,19 @@ a:active {
 .site-footer a:hover {
   opacity: 0.4;
   text-decoration: none;
+}
+
+.blog-timeline { width: min(700px, 100%); box-sizing: border-box; margin-top: 24px; }
+.blog-timeline section { margin-bottom: 32px; }
+.blog-timeline h2 { width: auto; margin: 0 0 18px; padding: 0; font-size: 23px; }
+.blog-timeline ul { list-style: none; margin: 0; padding: 0; }
+.blog-timeline li { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 18px; align-items: baseline; margin-bottom: 18px; }
+.blog-timeline time { color: #777; font-size: .9em; font-variant-numeric: tabular-nums; }
+.blog-timeline a:link, .blog-timeline a:visited { color: #555; text-decoration: underline; text-decoration-color: #c8c8cd; text-decoration-thickness: 1px; text-underline-offset: 4px; cursor: pointer; }
+.blog-timeline a:hover, .blog-timeline a:focus-visible { color: #555; text-decoration-color: #555; }
+.blog-timeline::after { display: none; }
+@media (max-width: 600px) {
+  .blog-timeline li { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; }
 }
 
 .section-line {
@@ -489,6 +574,8 @@ a:active {
 @media (max-width: 768px) {
 
   .navigation {
+    max-width: 100%;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -578,3 +665,5 @@ a:active {
 
 
 }
+
+.home-ending-rule { border: 0; border-top: 1px solid #d8d8d8; margin: 40px 0 24px; }
