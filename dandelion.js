@@ -51,7 +51,7 @@
         plants.some(plant => Math.abs(plant.lane * width - x) < 38)) return;
     plants.push({
       lane: x / width, age: 0, seedCount: 1, fullness: 1, scale: random(0.65, 1.15),
-      rate: random(0.7, 1.25), height: random(24, 47), bend: random(-7, 7),
+      rate: random(0.7, 1.25), height: random(32, 82), bend: random(-7, 7),
       leafCount: Math.floor(random(4, 9)), leafLength: random(0.75, 1.2),
       swayPhase: random(0, Math.PI * 2), swaySpeed: random(0.12, 0.3),
       crown: random(6.5, 10), tint: Math.floor(random(0, 3)),
@@ -106,7 +106,7 @@
       const stemFade = fade * opening;
       ctx.globalAlpha = stemFade * 0.36;
       ctx.strokeStyle = ['#b8c4a9', '#b5c7bc', '#c4c8ae'][plant.tint];
-      const top = -12 - stalk * plant.height * opening * (1 - stem * 0.075);
+      const top = -12 - stalk * plant.height * opening * (1 - stem * 0.11);
       const bend = plant.bend + (stem % 2 ? -1 : 1) * stem * 7 + Math.sin(plant.age * plant.swaySpeed + plant.swayPhase) * 1.2;
       ctx.beginPath(); ctx.moveTo(0, 0); ctx.bezierCurveTo(2, -16, bend + 2, top + 13, bend, top); ctx.stroke();
       ctx.save(); ctx.translate(bend, top);
