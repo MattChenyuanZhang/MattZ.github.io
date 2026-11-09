@@ -23,7 +23,7 @@
       delay: initial ? 0 : random(0.5, 8), frozen: false
     });
   }
-  const seeds = Array.from({ length: innerWidth < 600 ? 6 : 12 }, () => {
+  const seeds = Array.from({ length: innerWidth < 600 ? 7 : 13 }, () => {
     const seed = {}; restart(seed, true); return seed;
   });
   function resize() {
