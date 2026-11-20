@@ -437,8 +437,8 @@ i:not([class]),
 .blog-timeline ul { list-style: none; margin: 0; padding: 0; }
 .blog-timeline li { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 18px; align-items: baseline; margin-bottom: 18px; }
 .blog-timeline time { color: #777; font-size: .9em; font-variant-numeric: tabular-nums; }
-.blog-timeline a:link, .blog-timeline a:visited { color: #555; text-decoration: underline; text-decoration-color: #c8c8cd; text-decoration-thickness: 1px; text-underline-offset: 4px; cursor: pointer; }
-.blog-timeline a:hover, .blog-timeline a:focus-visible { color: #555; text-decoration-color: #555; }
+.blog-timeline a:link, .blog-timeline a:visited { color: #000; text-decoration: underline; text-decoration-color: #c8c8cd; text-decoration-thickness: 1px; text-underline-offset: 4px; cursor: pointer; }
+.blog-timeline a:hover, .blog-timeline a:focus-visible { color: #000; text-decoration-color: #000; }
 .blog-timeline::after { display: none; }
 @media (max-width: 600px) {
   .blog-timeline li { grid-template-columns: 48px minmax(0, 1fr); gap: 12px; }
