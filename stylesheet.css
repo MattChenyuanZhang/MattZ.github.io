@@ -41,7 +41,7 @@ a:active {
 }
 
 .home-page .intro a:not(.university-link) {
-  color: #555;
+  color: #2278C9;
   text-decoration: underline;
   text-decoration-color: #c8c8cd;
   text-decoration-thickness: 1px;
@@ -51,9 +51,9 @@ a:active {
 
 .home-page .intro a:not(.university-link):hover,
 .home-page .intro a:not(.university-link):focus-visible {
-  color: #555;
+  color: #2278C9;
   text-decoration: underline;
-  text-decoration-color: #555;
+  text-decoration-color: #2278C9;
 }
 
 .favorite-place {
@@ -92,6 +92,7 @@ i:not([class]),
 
 .reading-entry-heading {
   margin-bottom: 0;
+  font-size: calc(19.5px * 7 / 6);
 }
 
 .reading-entry-heading time {
@@ -111,14 +112,15 @@ i:not([class]),
 }
 
 .reading-intro {
-  font-size: calc(1em * 6 / 7);
+  font-size: 19.5px;
+  color: #000;
 }
 
 .reading-recommendation p {
   margin: 0;
-  font-size: calc(1em * 6 / 7);
-  font-style: italic;
-  color: #707070;
+  font-size: 19.5px;
+  font-style: normal;
+  color: #2278C9;
 }
 
 .profile-section {

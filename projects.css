@@ -29,7 +29,7 @@
 }
 .showcase-links { display: flex; flex-wrap: wrap; gap: 12px 24px; font-size: 17px; }
 .projects-page .showcase-links a {
-  color: #555;
+  color: #2278C9;
   text-decoration: underline;
   text-decoration-color: #c8c8cd;
   text-decoration-thickness: 1px;
@@ -37,7 +37,7 @@
   cursor: pointer;
 }
 .projects-page .showcase-links a:hover,
-.projects-page .showcase-links a:focus-visible { text-decoration-color: #555; }
+.projects-page .showcase-links a:focus-visible { text-decoration-color: #2278C9; }
 .showcase-format { font-size: .85em; }
 .showcase-visual { display: block; min-width: 0; }
 .showcase-visual img {
