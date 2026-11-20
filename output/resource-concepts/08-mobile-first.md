@@ -1,0 +1,19 @@
+# 08 — Mobile first
+
+## Correction prompt
+Edit this existing responsive website mockup. Preserve exactly its layout, typography, white/ink/cobalt palette, phone and desktop framing, resource titles, and all other content. Make only these text corrections in BOTH the mobile and desktop views: address bar must read 'mattcyzhang.com/resources'; author/source under 'Exam study guide' must read 'Josh Hug / Berkeley CS61B'; source under 'How to get good grades in Computer Science' must read 'Reddit r/csMajors'; source under 'How to Make the Most of Your Professor’s Office Hours' must read 'University of South Florida'. Leave Andrej Karpathy under Doing well in your courses and Matt Might under College tips and the graduate resource unchanged. Exact readable text; no other design changes.
+
+## Evaluation
+Source review of resources.html and stylesheet.css; no live browser testing performed by this reviewer.
+- Mobile navigation is explicitly nowrap and horizontally scrollable. Later destinations require sideways movement, which is poorly signposted.
+- The body, container padding, 90% mobile max-width, and default list indentation compound, leaving less space for long resource titles.
+- Mobile link padding is only 4px vertically; adjacent inline author/title links are difficult to target reliably.
+- The page lacks a visible Resources h1. Section headings are direct children of ul, weakening list semantics and heading hierarchy.
+- The content is useful and lightweight. Preserve its real titles and topic organization.
+
+## Proposal
+Build from a 390px phone layout with 20px horizontal gutters, a clear page title, topic jump selector, full-width resource links with at least 48px touch targets, and separate author metadata. Use an accessible Menu control for the global navigation on phones. Desktop gains a slim topic index while retaining a readable single-column list. White, ink, and cobalt keep the existing straightforward character. Verify at 320/390/768px, 200% zoom, keyboard navigation, and screen reader heading/list navigation when implemented.
+
+## Generation prompt
+Use case: product-mockup. Create ONE high-fidelity responsive website design presentation, landscape 1536x1024, white/ink/cobalt palette. Concept: MOBILE FIRST for Matt Zhang's personal resource page. Show a large readable straight-on phone browser viewport on left (390px logical width, occupies 35% canvas) and a coordinated desktop browser on right (65%), both carefully composed, no perspective, on extremely light gray background. Mobile page has white background, Matt Zhang with a small smiling face mark, Menu button, title Resources, subtitle 'Good things to learn from.', compact topic selector 'College study' with down chevron, section 'Undergrad/College Study', generous 48px+ tap-height resource rows with thin dividers, blue titles, small black author labels, arrow at right. Exact titles 'Doing well in your courses', 'Exam study guide', 'How to get good grades in Computer Science', 'How to Make the Most of Your Professor’s Office Hours', 'College tips, tricks and hacks'. Author 'Andrej Karpathy' and 'Matt Might'. Desktop header '😃 Matt Zhang' left and 'Blog  Projects  Resources  Writing' right with Resources blue underline. Desktop page title Resources, subtitle 'Good things to learn from.', left compact topic navigation with College study, Grad school, Great work, AI, Cold emails, Finding a job; right generous reading column. Show 'Undergrad/College Study' and same resource rows, below 'Grad School (General)' and 'HOWTO: Get into grad school for STEM' by Matt Might. Clear visual hierarchy using elegant modern sans-serif; 18px-equivalent body type, large 54px desktop title. No cards, no photos, no decorative illustration. Distinct polished practical website design proposal, beautifully readable text. Add tiny presentation label '08 / MOBILE FIRST' outside mockups at bottom.
+

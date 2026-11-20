@@ -1,0 +1,82 @@
+[
+  {
+    "url": "https://karpathy.ai",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://web.archive.org/web/20170613052814/http://cs.stanford.edu/people/karpathy/advice.html",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://sp19.datastructur.es/materials/guides/study-guide",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://www.reddit.com/r/csMajors/s/9OW2JUOcOE",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://admissions.usf.edu/blog/how-to-make-the-most-of-your-professors-office-hours",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://matt.might.net",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://matt.might.net/articles/college-tips",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://matt.might.net/articles/how-to-apply-and-get-in-to-graduate-school-in-science-mathematics-engineering-or-computer-science",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://www.justinesherry.com",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://www.cs.cmu.edu/~harchol",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://web.archive.org/web/20170612030342/http://karpathy.github.io/2016/09/07/phd/",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://benchugg.com/writing/phd-thoughts/",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://paulgraham.com/greatwork.html",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://www.cs.virginia.edu/~robins/YouAndYourResearch.html",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "http://www.catb.org/~esr/faqs/hacker-howto.html#real_hackers",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://docs.google.com/document/d/1Vb8WWbsVyEJzl66_qqtZfFr2uLL07Y7SJH5XKldjDPY/edit?tab=t.0",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://ergosphere.blog/posts/the-machines-are-fine/",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://x.com/msuster/status/1124121819173154816",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://x.com/lpolovets/status/1121799684136132609",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  },
+  {
+    "url": "https://v1community.notion.site/V1-s-Recruiting-Playbook-0f12927af1e9457787c27f43e325685c",
+    "error": "<urlopen error [Errno 8] nodename nor servname provided, or not known>"
+  }
+]

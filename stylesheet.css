@@ -10,7 +10,7 @@ body {
   margin: 0;
   padding: 20px;
   min-height: 10vh;
-  background-color: #ffffff;
+  background-color: #FCFAF7;
   color: #000;
   line-height: 1.5;
 
@@ -76,6 +76,36 @@ a:active {
   position: relative;
 }
 
+.reading-divider {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.reading-entry-heading {
+  margin-bottom: 0;
+}
+
+.reading-entry-heading time {
+  color: #666;
+  font-size: 0.85em;
+  font-style: normal;
+  margin-right: 0.5em;
+}
+
+.reading-entry-heading a {
+  color: inherit;
+}
+
+.reading-recommendation {
+  margin-top: 0.4em;
+  padding-inline-start: 1.1em;
+}
+
+.reading-recommendation p {
+  margin: 0;
+  font-style: italic;
+}
+
 .profile-section {
   margin-left: 40px;
   margin-top: -20px;
@@ -94,6 +124,13 @@ a:active {
   margin-top: 10px;
   margin-left: -10px;
   display: block;
+}
+
+.profile-wordmark {
+  display: block;
+  width: min(280px, 100%);
+  height: auto;
+  margin-left: -48px;
 }
 
 .text-paragraph {
@@ -127,6 +164,7 @@ a:active {
 .profile-pic {
   width: 250px;
   height: 250px;
+  border-radius: 8px;
   object-position: 50% 50%;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -246,9 +284,13 @@ a:active {
 .navigation {
   margin: 0 auto;
   margin-top: -15px;
-  /* max-width: 700px; */
-  padding: 20px;
+  width: min(700px, calc(100% - 20px));
+  padding: 20px 10px;
   position: relative;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 .navigation a {
@@ -299,8 +341,7 @@ a:active {
 .navigation a:active { font-style: normal; }
 
 .nav-home {
-  margin-left: -20px;
-  margin-right: 300px;
+  margin-right: auto;
   color: #000;
   font-weight: 600;
 }
@@ -328,13 +369,16 @@ a:active {
   position: relative;
 }
 
-.navigation::after {
+.navigation-bar {
+  position: relative;
+}
+
+.navigation-bar::after {
   content: "";
   position: absolute;
-  left: 50%;
+  left: -20px;
+  right: -20px;
   bottom: 0;
-  transform: translateX(-50%);
-  width: 100vw;
   height: 1px;
   background: rgba(0, 0, 0, 0.12);
   box-shadow: 0 2px 5px rgba(100, 100, 1, 0.32);
@@ -574,21 +618,8 @@ a:active {
 @media (max-width: 768px) {
 
   .navigation {
-    max-width: 100%;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    width: 90%;
     padding: 12px 10px;
-    flex-wrap: nowrap;      /* keep one line */
-    white-space: nowrap;    /* no text wrapping */
-    overflow-x: auto;       /* allow horizontal scroll if needed */
-    }
-
-  .nav-home {
-    position: sticky;
-    white-space: nowrap;    /* "Matt Zhang" stays one line */
-    margin: 0;
   }
 
   .navigation a:not(.nav-home) {
@@ -606,19 +637,38 @@ a:active {
 
   .profile-section {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    margin-left: 0;
+    text-align: center;
     gap: 16px;
   }
 
   .photo {
     order: -1; /* move image ABOVE text */
-    transform: translate(78px, 20px); 
+    margin-top: 33px;
+    margin-right: 0;
+    width: min(200px, 100%);
   }
 
   .profile-pic {
-    width: 120px;
-    height: 120px;
-    object-position: 50% 50%;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .home-page .profile-section h1,
+  .home-page .profile-section .text-paragraph {
+    display: none;
+  }
+
+  .profile-section .contact-icons {
+    justify-content: center;
+    margin-top: 0;
+  }
+
+  .home-page .intro {
+    margin-top: 12px;
   }
 
   .text {
@@ -667,5 +717,12 @@ a:active {
 }
 
 .home-ending-rule { border: 0; border-top: 1px solid #d8d8d8; margin: 40px 0 24px; }
+
+.home-beliefs h2 {
+  font: inherit;
+  margin: 1em 0;
+  padding: 0;
+  width: auto;
+}
 
 .nyu-wordmark { font-family: Arial, Helvetica, sans-serif; font-weight: 700; }
