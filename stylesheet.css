@@ -97,7 +97,7 @@ i:not([class]),
 
 .reading-entry-heading time {
   color: #666;
-  font-size: 0.85em;
+  font-size: 19.5px;
   font-style: normal;
   margin-right: 0.5em;
 }
@@ -711,7 +711,8 @@ i:not([class]),
   }
 
   .reading-intro,
-  .reading-recommendation p {
+  .reading-recommendation p,
+  .reading-entry-heading time {
     font-size: 16px;
   }
 
