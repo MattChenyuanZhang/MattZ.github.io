@@ -76,6 +76,15 @@ a:active {
   position: relative;
 }
 
+em,
+i:not([class]),
+[style*="font-style: italic"],
+.reading-recommendation p,
+.quote,
+.last-blog-date {
+  color: #707070;
+}
+
 .reading-divider {
   border: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
@@ -101,9 +110,15 @@ a:active {
   padding-inline-start: 1.1em;
 }
 
+.reading-intro {
+  font-size: calc(1em * 6 / 7);
+}
+
 .reading-recommendation p {
   margin: 0;
+  font-size: calc(1em * 6 / 7);
   font-style: italic;
+  color: #707070;
 }
 
 .profile-section {
@@ -242,7 +257,7 @@ a:active {
   text-align: center;
   font-style: italic;
   font-size: 1.1rem;
-  color: rgba(0, 0, 0, 0.887);
+  color: #707070;
 }
 
 .quote-author {
@@ -277,7 +292,7 @@ a:active {
   text-align: right;
   font-size: 1em;
   font-style: italic;
-  color: #777;
+  color: #707070;
   margin-top: 32px;
 }
 
@@ -691,6 +706,15 @@ a:active {
   p {
     font-size: 1rem;
     line-height: 1.5;
+  }
+
+  .reading-intro,
+  .reading-recommendation p {
+    font-size: 16px;
+  }
+
+  .reading-entry-heading {
+    font-size: calc(16px * 7 / 6);
   }
 
   .project-left,

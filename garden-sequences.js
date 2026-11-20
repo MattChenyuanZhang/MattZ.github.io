@@ -26,6 +26,7 @@
     Object.assign(button.style,{position:'fixed',right:'14px',bottom:'10px',zIndex:'12',
       font:'12px Georgia,serif',color:'#888',background:'rgba(255,255,255,.86)',border:'0',
       padding:'5px 7px',textDecoration:'underline',textUnderlineOffset:'3px',cursor:'pointer'});
+    button.hidden=true;
     document.body.append(button);
     function refresh(){
       const previous=status?.enabled;
