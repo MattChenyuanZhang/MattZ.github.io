@@ -4,7 +4,8 @@
   // Animate content only; the shared navigation is visible immediately.
   const items = document.querySelectorAll(
     '.blog-timeline h2, .blog-timeline li, .showcase-project, ' +
-    '.resource-topics, .resource-section h2, .resource-item'
+    '.resource-topics, .resource-section h2, .resource-item, ' +
+    '.reading-intro, .reading-entry'
   );
   items.forEach((item, index) => {
     item.animate(
